@@ -218,4 +218,4 @@ Unit 8: Group Milestone - README
 *# Product Spec
 
 ## Wireframes
-![wireframe1](wireframes/wireframe3.jpg)
+![wireframe](wireframes/wireframe-images-final.jpg)
