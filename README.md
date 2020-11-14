@@ -10,8 +10,17 @@ Unit 8: Group Milestone - README
 
 ## Overview
 ### Description
+Fond is a mobile application that allows hungry foodies and passionate chefs to find inspiration for their next dish while browsing their feed or searching for a recipe on the app to make. With ingredient search, aspiring chefs can use items already in the kitchen in new and exciting ways. Once concocted, users will be able share their food creations with the world. 
 
-### App Evaluation
+### Evaluation
+- **Category:** Social Networking / Food
+
+- **Mobile:** Mobile is essential for easy posting. Users will use their phone's built in camera to take photos and upload them to their feed. [Stretch] Users will be able to use their phone's camera to scan barcodes and easily upload ingredients, making recipe search even simpler. 
+ 
+- **Story:** Allows users to answer the age-old question, "What's for dinner?" Users will be able to find inspiration and ways to cook ingredients that they already have, creating interest and cutting down on food waste. [stretch] Once they find new favorites, they'll be able to save them to their account for easy access and use. They'll also be able to "fond" posts and receive "fonds" on their own posts, for positive affimation. 
+- **Market:** According to a 2012 Hartman Group study, half of consumers surveyed use social media to learn about food. There's a huge market, and Fond allows users to find recipes and inspiration from a single collective source. Ads for local restaurants or personal recipe blogs/vlogs could be used for monetization. 
+- **Habit:** With endless scroll, and a large amount of user posts, the app could be very addictive to a user that has time to spare. An average user could use the app at the very least, once a week to plan dinner, but would return once a day to see new posts. An average user would not just consume posts, but would also create their own. 
+- **Scope** Our most basic iteration of the app would include a post feed, allow users to upload photos of their own foods, and a recipe search with minimal search options (recipe name search and ingredient search). We believe that the most stripped down version of the app still provides a rich user experience and is also very attainable by the end of the program. Further iterations include allowing users to "fond" other posts, additional recipe filters, and additional user features (e.g. creating shopping lists from saved ingredients). 
 
 ## Product Spec
 
