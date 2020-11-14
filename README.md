@@ -230,15 +230,15 @@ Fond is a mobile application that allows hungry foodies and passionate chefs to 
 ![wireframe](wireframes/wireframe-images-final.jpg)
 
 ### [BONUS] Digital Wireframes & Mockups
-<img src="https://i.imgur.com/T3RjUCF.png" width=200>
-<img src="https://i.imgur.com/ZxuK9O3.png" width=200>
-<img src="https://i.imgur.com/UW3pNA4.png" width=200>
-<img src="https://i.imgur.com/z0SVBwk.png" width=200>
-![wireframe](wireframes/4Search.png)
-<img src="https://i.imgur.com/bdF8pz6.png" width=200>
-<img src="https://i.imgur.com/bmhQWeg.png" width=200>
-<img src="https://i.imgur.com/KJ8fg0w.png" width=200>
-<img src="https://i.imgur.com/HLhKGD6.png" width=200>
+![](https://i.imgur.com/1WSaFkB.png)
+![](https://i.imgur.com/OQ3k57u.png)
+![](https://i.imgur.com/CLHmncS.png)
+![](https://i.imgur.com/T9mcUFY.png)
+![](https://i.imgur.com/S0NPezH.png)
+![](https://i.imgur.com/0ZqDgnn.png)
+![](https://i.imgur.com/deTAsvV.png)
+![](https://i.imgur.com/6IvmNNf.png)
+![](https://i.imgur.com/kM3ruGE.png)
 
 ### [BONUS] Interactive Prototype
-<img src="https://i.imgur.com/AiKfE5g.gif" width=200>
+![](https://i.imgur.com/FLQ96Kb.gif)
