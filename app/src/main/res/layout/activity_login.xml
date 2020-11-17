@@ -43,12 +43,12 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_marginStart="52dp"
-        android:layout_marginTop="165dp"
+        android:layout_marginTop="99dp"
         android:layout_marginEnd="53dp"
         android:ems="10"
         android:hint="@string/username"
-        android:inputType="textPersonName"
-        android:importantForAutofill="no" />
+        android:importantForAutofill="no"
+        android:inputType="textPersonName" />
 
     <EditText
         android:id="@+id/etPassword"
@@ -87,5 +87,6 @@
         android:layout_marginTop="15dp"
         android:layout_marginEnd="64dp"
         android:text="@string/signup" />
+
 
 </RelativeLayout>
