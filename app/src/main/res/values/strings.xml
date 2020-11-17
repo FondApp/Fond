@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Fond</string>
+    <string name="login">Login</string>
+    <string name="register">Sign Up</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="signup">Don\'t have an account? Sign up here.</string>
+    <string name="fond_logo">Fond Logo</string>
 </resources>
