@@ -16,7 +16,7 @@
 
     <item
         android:id="@+id/action_recipe"
-        android:icon="@drawable/drawable_recipes"
+        android:icon="@drawable/drawable_fork_and_knife"
         android:title="Saved Recipes"
         app:showAsAction="ifRoom" />
 
