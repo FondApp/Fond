@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/action_home"
+        android:id="@+id/action_user_feed"
         android:icon="@drawable/drawable_home"
         android:title="Home"
         app:showAsAction="always" />

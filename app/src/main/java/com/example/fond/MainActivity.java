@@ -3,11 +3,17 @@ package com.example.fond;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.FrameLayout;
 import android.widget.Toast;
 
+import com.example.fond.fragments.profileFragment;
+import com.example.fond.fragments.savedRecipesFragment;
+import com.example.fond.fragments.searchRecipeFragment;
+import com.example.fond.fragments.userFeedFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
@@ -20,32 +26,40 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         bottomNavigationView = findViewById(R.id.bottom_navigation);
+        final FragmentManager fragmentManager = getSupportFragmentManager();
+
+        final Fragment userFeedFragment = new userFeedFragment();
+        final Fragment searchRecipeFragment = new searchRecipeFragment();
+        final Fragment savedRecipesFragment = new savedRecipesFragment();
+        final Fragment profileFragment = new profileFragment();
+
 
         bottomNavigationView.setOnNavigationItemSelectedListener(
                 new BottomNavigationView.OnNavigationItemSelectedListener() {
                     @Override
                     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                        Fragment fragment;
+                        Fragment fragment = null;
                         switch (item.getItemId()) {
-                            case R.id.action_home:
-                                Toast.makeText(MainActivity.this, "Home!", Toast.LENGTH_SHORT).show();
+                            case R.id.action_user_feed:
+                                fragment = userFeedFragment;
                                 break;
                             case R.id.action_search:
-                                Toast.makeText(MainActivity.this, "Search!", Toast.LENGTH_SHORT).show();
+                                fragment = searchRecipeFragment;
                                 break;
                             case R.id.action_recipe:
-                                Toast.makeText(MainActivity.this, "Recipe!", Toast.LENGTH_SHORT).show();
+                                fragment = savedRecipesFragment;
                                 break;
                             case R.id.action_profile:
-                                Toast.makeText(MainActivity.this, "Profile!", Toast.LENGTH_SHORT).show();
+                                fragment = profileFragment;
                                 break;
                             default:
                                 break;
                         }
+                        fragmentManager.beginTransaction().replace(R.id.flContainer, fragment).commit();
                         return true;
                     }
                 });
         // Set default selection
-        bottomNavigationView.setSelectedItemId(R.id.action_home);
+        bottomNavigationView.setSelectedItemId(R.id.action_user_feed);
     }
 }
