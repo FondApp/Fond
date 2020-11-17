@@ -39,7 +39,6 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.i(TAG, "Login button click");
 
                 String username = etUsername.getText().toString();
                 String password = etPassword.getText().toString();
@@ -48,6 +47,20 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+        tvRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                // Pass user to the register screen
+                registerUser();
+            }
+        });
+
+    }
+
+    private void registerUser() {
+        Intent i = new Intent(this, RegisterActivity.class);
+        startActivity(i);
     }
 
     private void loginUser(String username, String password) {
@@ -67,6 +80,7 @@ public class LoginActivity extends AppCompatActivity {
                 // Otherwise, navigate to main activity
                 Log.i(TAG, "Successful user login");
                 goMainActivity();
+                finish();
             }
         });
     }

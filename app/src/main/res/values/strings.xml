@@ -6,4 +6,6 @@
     <string name="password">Password</string>
     <string name="signup">Don\'t have an account? Sign up here.</string>
     <string name="fond_logo">Fond Logo</string>
+    <string name="create_usrname">Create a username</string>
+    <string name="choose_password">Choose a password</string>
 </resources>
