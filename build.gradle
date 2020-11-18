@@ -23,3 +23,9 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+ext {
+    // Added this for the Bottom Navigation View
+    appCompatVersion = '1.0.0'
+    designSupportVersion = '1.0.0'
+}

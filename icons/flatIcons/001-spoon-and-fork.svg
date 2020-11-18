@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" version="1.1" width="512" height="512" x="0" y="0" viewBox="0 0 64 64" style="enable-background:new 0 0 512 512" xml:space="preserve" class="">
+  <g transform="matrix(-1,-1.2246467991473532e-16,1.2246467991473532e-16,-1,63.99999618530273,63.91849517822267)">
+    <g xmlns="http://www.w3.org/2000/svg" id="Spoon-Fork-Tableware-Kitchen-Food">
+      <path d="m23.186 37.465 1.6-30.471a3.8 3.8 0 1 0 -7.58 0l1.6 30.471c-3.346 1.428-5.806 6.046-5.806 11.535 0 6.627 3.582 12 8 12s8-5.373 8-12c0-5.489-2.46-10.107-5.814-11.535z" fill="#000000" data-original="#000000" style="" class=""/>
+      <path d="m45.194 37.312 1.6-30.318a3.8 3.8 0 1 0 -7.58 0l1.6 30.318a8 8 0 0 0 -5.814 7.688v16h2l2-16h2l1 16h2l1-16h2l2 16h2v-16a8 8 0 0 0 -5.806-7.688z" fill="#000000" data-original="#000000" style="" class=""/>
+    </g>
+  </g>
+</svg>
