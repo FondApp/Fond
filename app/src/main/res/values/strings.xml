@@ -2,4 +2,6 @@
     <string name="app_name">Fond</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="user_profile_photo">User\'s profile photo</string>
+    <string name="user_post_image">User\'s posted image</string>
 </resources>
