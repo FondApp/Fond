@@ -1,10 +1,19 @@
 apply plugin: 'com.android.application'
 
+
+def apikeyPropertiesFile = rootProject.file("apikey.properties")
+def apikeyProperties = new Properties()
+apikeyProperties.load(new FileInputStream(apikeyPropertiesFile))
+
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.1"
 
     defaultConfig {
+        // should correspond to key/value pairs inside the file
+        buildConfigField("String", "CLIENT_KEY", apikeyProperties['CLIENT_KEY'])
+        buildConfigField("String", "APP_ID", apikeyProperties['APP_ID'])
+
         applicationId "com.example.fond"
         minSdkVersion 21
         targetSdkVersion 30
@@ -30,6 +39,8 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    implementation 'com.github.parse-community.Parse-SDK-Android:parse:1.25.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.8.1' // for logging API calls to LogCat
 
     // Added for the Bottom Navigation View
     implementation "androidx.appcompat:appcompat:${appCompatVersion}"
