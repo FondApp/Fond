@@ -1,4 +1,4 @@
-package com.example.fond;
+package com.example.fond.networking;
 
 import android.app.Application;
 
