@@ -1,8 +1,10 @@
-package com.example.fond;
+package com.example.fond.networking;
 
 import android.app.Application;
 
+import com.example.fond.models.UserPost;
 import com.parse.Parse;
+import com.parse.ParseObject;
 
 public class ParseApplication extends Application {
 
@@ -11,7 +13,10 @@ public class ParseApplication extends Application {
     public void onCreate() {
         super.onCreate();
 
-        // TODO: Figure out why receiving an occasional "com.parse.ParseRequest$ParseRequestException: i/o failure" error
+        // Registering the UserPost class
+        ParseObject.registerSubclass(UserPost.class);
+
+        // Initializing the Parse SDK
         Parse.initialize(new Parse.Configuration.Builder(this)
                 .applicationId("BGw3ZXQSjmfO7mIwrcZ2FNNnytM8Ch0AeOM9Xnys")
                 .clientKey("iQo1J2mgMMoXcogcMQ911Zv5PzsDfiXzNzFy74HF")
