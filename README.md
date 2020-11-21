@@ -8,10 +8,10 @@ Unit 9: Group Milestone - README
 2. [Product Spec](#Product-Spec)
 3. [Wireframes](#Wireframes)
 4. [Schema](#Schema)
-5. [Built With](#Fond-is-Built-With)
-6. [Authors](#Authors)
-7. [Running Locally](#Running-Locally)
-8. [Phone Emulator](#Phone-Emulator)
+5. [Built With](#-Fond-is-Built-With)
+6. [Authors](#-Authors)
+7. [Running Locally](#-Running-Locally)
+8. [Phone Emulator](#-Phone-Emulator)
 
 ## Overview
 ### Description
