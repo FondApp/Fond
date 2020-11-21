@@ -1,13 +1,13 @@
-Unit 8: Group Milestone - README
+Unit 9: Group Milestone - README
 ===
 
 # Fond
 
 ## Table of Contents
 1. [Overview](#Overview)
-1. [Product Spec](#Product-Spec)
-1. [Wireframes](#Wireframes)
-
+2. [Product Spec](#Product-Spec)
+3. [Wireframes](#Wireframes)
+4. [Schema](#Schema)
 ## Overview
 ### Description
 Fond is a mobile application that allows hungry foodies and passionate chefs to find inspiration for their next dish while browsing their feed or searching for a recipe on the app to make. With ingredient search, aspiring chefs can use items already in the kitchen in new and exciting ways. Once concocted, users will be able share their food creations with the world. 
@@ -242,3 +242,97 @@ Fond is a mobile application that allows hungry foodies and passionate chefs to 
 
 ### [BONUS] Interactive Prototype
 ![](https://i.imgur.com/FLQ96Kb.gif)
+
+##Schema
+### Models
+#### User
+
+   | Property      | Type     | Description |
+   | ------------- | -------- | ------------|
+   | objectId      | String   | unique id for the user (default field) |
+   | username      | String   | unique username for the user |
+   | password      | String   | password for user login |
+   | profilePic    | File     | image for user profile |
+   | createdAt     | DateTime | date when user is created (default field) |
+   | updatedAt     | DateTime | date when user is last updated (default field) |
+   
+#### Post
+
+   | Property      | Type     | Description |
+   | ------------- | -------- | ------------|
+   | objectId      | String   | unique id for the user post (default field) |
+   | author        | Pointer to User| post author |
+   | image         | File     | image that user posts |
+   | description   | String   | post caption by author | 
+   | createdAt     | DateTime | date when post is created (default field) |
+   | updatedAt     | DateTime | date when post is last updated (default field) |
+   
+
+#### Fond (when user "likes" another user's post)
+
+   | Property      | Type     | Description |
+   | ------------- | -------- | ------------|
+   | objectId      | String   | unique id for the user fond (default field) |
+   | userId        | Pointer to User| user who completed "fond" action |
+   | postId        | Pointer to Post| post user "fond"-ed |
+   | createdAt     | DateTime | date when fond is created (default field) |
+   | updatedAt     | DateTime | date when fond is last updated (default field) |   
+
+
+#### Recipe
+
+   | Property      | Type     | Description |
+   | ------------- | -------- | ------------|
+   | objectId      | String   | unique id for the recipe (default field) |
+   | Title         | String   | title of Recipe |
+   | imageUrl      | String   | URL to recipe photo |
+   | summary       | String   | description of recipe | 
+   | createdAt     | DateTime | date when recipe is created (default field) |
+   | updatedAt     | DateTime | date when recipe is last updated (default field) |
+   
+   
+#### Recipe_Favorites (when user "favorites" a recipee
+
+   | Property      | Type     | Description |
+   | ------------- | -------- | ------------|
+   | objectId      | String   | unique id for the recipe_favorite (default field) |
+   | userId        | Pointer to User | user that favorited the recipe |
+   | imageUrl      | Pointer to Recipe | recipe user favorited |
+   | createdAt     | DateTime | date when recipe is favorited (default field) |
+   | updatedAt     | DateTime | date when recipe_favorites is last updated (default field) |
+   
+
+### Networking
+#### List of network requests by screen
+  - Login/Register Screen
+      - (Read/GET) Query logged in user object
+      - (Create/POST) Create a new user 
+  - User Feed (Stream) Screen
+      - (Read/GET) Query most recent posts
+      - (Create/POST) Create a new "fond" on a post
+      - (Delete/DEL) Delete a "fond" from a previously "fond"-ed post
+  - Photo Capture Screen
+      - (Create/POST) Create a new post object
+  - Search (stream) Screen
+      - No Parse interaction for this page     
+  - Advanced Search (stream) Screen
+      - No Parse interaction for this page
+  - Saved Recipes (Stream) Screen
+      - (Read/GET) Query user's favorited recipe
+  - Profile Screen
+      - (Read/GET) Query user's posts
+      
+#### Existing API Endpoints
+##### [Spoonacular](https://spoonacular.com/food-api)
+- Base URL - [https://api.spoonacular.com](https://api.spoonacular.com)
+
+   HTTP Verb | Endpoint | Description
+   ----------|----------|------------
+    `GET`    |/recipes/random | get random list of recipes
+    `GET`    | /recipes/complexSearch?query={query} | return recipes by natural language search query
+    `GET`    | /recipes/complexSearch?intolerances={intolerances} | return recipes by omitting allergies (e.g. gluten)
+    `GET`    | /recipes/complexSearch?cuisine={cuisine} | return recipes by cuisine
+    `GET`    | /recipes/complexSearch?includeIngredients={includeIngredients} | return recipes that include certain ingredients
+    `GET`    | /recipes/complexSearch?excludeIngredients={excludeIngredients} | return recipes that exclude certain ingredients
+    `GET`    | recipes/{id}/similar | get similar recipes
+    `GET`    | /recipes/{id}/information | get recipe details
