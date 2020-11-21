@@ -345,13 +345,13 @@ Fond is a mobile application that allows hungry foodies and passionate chefs to 
 ## 🔨 Fond is built with
   - [Back4App](https://dashboard.back4app.com/apps)
   - [Spoonacular](https://spoonacular.com/food-api)
-  - [OkHttp](https://square.github.io/okhttp/)
+  - [Retrofit](https://square.github.io/retrofit/)
 
 ## 😋 Authors
-  -
-  -
-  -
-  -
+  - [Kat Kime](https://github.com/kat-kime)
+  - [Mae LaPresta](https://github.com/mlapresta)
+  - [K. McFarland](https://github.com/mcfarkar)
+  - [Gavin Slusher](https://github.com/GavinSlusher)
 
 ## 🖥 Running Locally
   - Clone the repository: `git clone https://github.com/FondApp/Fond.git`
