@@ -1,13 +1,18 @@
 Unit 9: Group Milestone - README
 ===
 
-# Fond
+# 🔥 Fond 
 
 ## Table of Contents
 1. [Overview](#Overview)
 2. [Product Spec](#Product-Spec)
 3. [Wireframes](#Wireframes)
 4. [Schema](#Schema)
+5. [Built With](#Fond-is-Built-With)
+6. [Authors](#Authors)
+7. [Running Locally](#Running-Locally)
+8. [Phone Emulator](#Phone-Emulator)
+
 ## Overview
 ### Description
 Fond is a mobile application that allows hungry foodies and passionate chefs to find inspiration for their next dish while browsing their feed or searching for a recipe on the app to make. With ingredient search, aspiring chefs can use items already in the kitchen in new and exciting ways. Once concocted, users will be able share their food creations with the world. 
@@ -22,7 +27,7 @@ Fond is a mobile application that allows hungry foodies and passionate chefs to 
 - **Habit:** With endless scroll, and a large amount of user posts, the app could be very addictive to a user that has time to spare. An average user could use the app at the very least, once a week to plan dinner, but would return once a day to see new posts. An average user would not just consume posts, but would also create their own. 
 - **Scope** Our most basic iteration of the app would include a post feed, allow users to upload photos of their own foods, and a recipe search with minimal search options (recipe name search and ingredient search). We believe that the most stripped down version of the app still provides a rich user experience and is also very attainable by the end of the program. Further iterations include allowing users to "fond" other posts, additional recipe filters, and additional user features (e.g. creating shopping lists from saved ingredients). 
 
-## Product Spec
+## Product Spec 
 
 ### 1. User Stories 
 
@@ -336,3 +341,23 @@ Fond is a mobile application that allows hungry foodies and passionate chefs to 
     `GET`    | /recipes/complexSearch?excludeIngredients={excludeIngredients} | return recipes that exclude certain ingredients
     `GET`    | recipes/{id}/similar | get similar recipes
     `GET`    | /recipes/{id}/information | get recipe details
+
+## 🔨 Fond is built with
+  - [Back4App](https://dashboard.back4app.com/apps)
+  - [Spoonacular](https://spoonacular.com/food-api)
+  - [OkHttp](https://square.github.io/okhttp/)
+
+## 😋 Authors
+  -
+  -
+  -
+  -
+
+## 🖥 Running Locally
+  - Clone the repository: `git clone https://github.com/FondApp/Fond.git`
+  - Open the project in the Android Studio
+  - Rename the `apikey.properties.example` file to `apikey.properties` and add the missing keys.
+  - Run the emulator.
+  
+## 📱 Phone Emulator
+  - This application has been developed on a Pixel 2 XL emulator
