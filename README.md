@@ -243,7 +243,7 @@ Fond is a mobile application that allows hungry foodies and passionate chefs to 
 ### [BONUS] Interactive Prototype
 ![](https://i.imgur.com/FLQ96Kb.gif)
 
-##Schema
+## Schema
 ### Models
 #### User
 
