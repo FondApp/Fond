@@ -23,6 +23,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.fond.R;
+import com.parse.ParseUser;
+
 import static android.app.Activity.RESULT_OK;
 import java.io.File;
 
@@ -63,6 +65,30 @@ public class ComposeFragment extends Fragment {
         ivPostImage = view.findViewById(R.id.ivPostImage);
         tvDescription = view.findViewById(R.id.tvDescription);
         btnSubmit = view.findViewById(R.id.btnSubmit);
+
+        btnSubmit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Grab caption
+                String caption = tvDescription.getText().toString();
+
+                // Check if caption and image are available
+                if (caption.isEmpty()) {
+                    Toast.makeText(getContext(), "Post must have a caption", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                else if (photoFile == null || ivPostImage.getDrawable() == null) {
+                    Toast.makeText(getContext(), "Post must have a photo", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                // TODO: Post image to database
+                ParseUser currentUser = ParseUser.getCurrentUser();
+
+                // TODO: Go to home fragment (navigating between fragments)
+            }
+        });
 
         launchCamera();
     }
