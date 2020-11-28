@@ -94,6 +94,13 @@ Fond is a mobile application that allows hungry foodies and passionate chefs to 
 * [ 45 ] We deploy the app on the app store
 * [ 34 ] User can find an ingredient based on barcode
 
+## Video Walkthrough
+
+Here's a walkthrough of implemented user stories:
+
+<img src='https://i.imgur.com/SiZLatn.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
+
 ### 2. Screen Archetypes 
 
 #### Login Screen
