@@ -41,7 +41,7 @@ Fond is a mobile application that allows hungry foodies and passionate chefs to 
 - [ ] [ 4 ] User can see a feed of recent user-generated photos
   - [X] Create posts feed fragment. (i.e. User Feed)
   - [ ] User can see a feed of recent user-generated photos.
-- [ ] [ 7 ] API returns a list of recipes that user make.
+- [ ] [ 7 ] List of user's "favorited" recipes returned.
   - [X] Create "favorited" recipes fragment. (i.e. Saved Recipes)
   - [ ] List of user's "favorited" recipes returned.
 - [ ] [ 8 ] User can take a picture of recipe they made
