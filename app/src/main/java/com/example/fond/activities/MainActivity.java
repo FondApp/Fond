@@ -1,4 +1,4 @@
-package com.example.fond;
+package com.example.fond.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
 import android.widget.Toast;
+import android.util.Log;
 
 import com.example.fond.fragments.profileFragment;
 import com.example.fond.fragments.savedRecipesFragment;
@@ -16,7 +17,11 @@ import com.example.fond.fragments.searchRecipeFragment;
 import com.example.fond.fragments.userFeedFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import com.example.fond.R;
+import com.parse.ParseUser;
+
 public class MainActivity extends AppCompatActivity {
+    public static final String TAG = "MainActivity";
 
     private BottomNavigationView bottomNavigationView;
 

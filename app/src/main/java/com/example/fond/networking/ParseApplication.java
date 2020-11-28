@@ -1,8 +1,10 @@
-package com.example.fond;
+package com.example.fond.networking;
 
 import android.app.Application;
 
+import com.example.fond.models.UserPost;
 import com.parse.Parse;
+import com.parse.ParseObject;
 
 public class ParseApplication extends Application {
     String clientKey = BuildConfig.CLIENT_KEY;
@@ -13,6 +15,10 @@ public class ParseApplication extends Application {
     public void onCreate() {
         super.onCreate();
 
+        // Registering the UserPost class
+        ParseObject.registerSubclass(UserPost.class);
+
+        // Initializing the Parse SDK
         Parse.initialize(new Parse.Configuration.Builder(this)
                 .applicationId(appId)
                 .clientKey(clientKey)
