@@ -7,6 +7,8 @@ import com.parse.Parse;
 import com.parse.ParseObject;
 
 public class ParseApplication extends Application {
+    String clientKey = BuildConfig.CLIENT_KEY;
+    String appId = BuildConfig.APP_ID;
 
     // Initializes Parse SDK as soon as the application is created
     @Override
@@ -18,8 +20,8 @@ public class ParseApplication extends Application {
 
         // Initializing the Parse SDK
         Parse.initialize(new Parse.Configuration.Builder(this)
-                .applicationId("BGw3ZXQSjmfO7mIwrcZ2FNNnytM8Ch0AeOM9Xnys")
-                .clientKey("iQo1J2mgMMoXcogcMQ911Zv5PzsDfiXzNzFy74HF")
+                .applicationId(appId)
+                .clientKey(clientKey)
                 .server("https://parseapi.back4app.com")
                 .build()
         );

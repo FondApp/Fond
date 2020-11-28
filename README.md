@@ -1,12 +1,17 @@
-Unit 8: Group Milestone - README
+Unit 9: Group Milestone - README
 ===
 
-# Fond
+# 🔥 Fond 
 
 ## Table of Contents
 1. [Overview](#Overview)
-1. [Product Spec](#Product-Spec)
-1. [Wireframes](#Wireframes)
+2. [Product Spec](#Product-Spec)
+3. [Wireframes](#Wireframes)
+4. [Schema](#Schema)
+5. [Built With](#-Fond-is-Built-With)
+6. [Authors](#-Authors)
+7. [Running Locally](#-Running-Locally)
+8. [Phone Emulator](#-Phone-Emulator)
 
 ## Overview
 ### Description
@@ -22,7 +27,7 @@ Fond is a mobile application that allows hungry foodies and passionate chefs to 
 - **Habit:** With endless scroll, and a large amount of user posts, the app could be very addictive to a user that has time to spare. An average user could use the app at the very least, once a week to plan dinner, but would return once a day to see new posts. An average user would not just consume posts, but would also create their own. 
 - **Scope** Our most basic iteration of the app would include a post feed, allow users to upload photos of their own foods, and a recipe search with minimal search options (recipe name search and ingredient search). We believe that the most stripped down version of the app still provides a rich user experience and is also very attainable by the end of the program. Further iterations include allowing users to "fond" other posts, additional recipe filters, and additional user features (e.g. creating shopping lists from saved ingredients). 
 
-## Product Spec
+## Product Spec 
 
 ### 1. User Stories 
 
@@ -242,3 +247,117 @@ Fond is a mobile application that allows hungry foodies and passionate chefs to 
 
 ### [BONUS] Interactive Prototype
 ![](https://i.imgur.com/FLQ96Kb.gif)
+
+## Schema
+### Models
+#### User
+
+   | Property      | Type     | Description |
+   | ------------- | -------- | ------------|
+   | objectId      | String   | unique id for the user (default field) |
+   | username      | String   | unique username for the user |
+   | password      | String   | password for user login |
+   | profilePic    | File     | image for user profile |
+   | createdAt     | DateTime | date when user is created (default field) |
+   | updatedAt     | DateTime | date when user is last updated (default field) |
+   
+#### Post
+
+   | Property      | Type     | Description |
+   | ------------- | -------- | ------------|
+   | objectId      | String   | unique id for the user post (default field) |
+   | author        | Pointer to User| post author |
+   | image         | File     | image that user posts |
+   | description   | String   | post caption by author | 
+   | createdAt     | DateTime | date when post is created (default field) |
+   | updatedAt     | DateTime | date when post is last updated (default field) |
+   
+
+#### Fond (when user "likes" another user's post)
+
+   | Property      | Type     | Description |
+   | ------------- | -------- | ------------|
+   | objectId      | String   | unique id for the user fond (default field) |
+   | userId        | Pointer to User| user who completed "fond" action |
+   | postId        | Pointer to Post| post user "fond"-ed |
+   | createdAt     | DateTime | date when fond is created (default field) |
+   | updatedAt     | DateTime | date when fond is last updated (default field) |   
+
+
+#### Recipe
+
+   | Property      | Type     | Description |
+   | ------------- | -------- | ------------|
+   | objectId      | String   | unique id for the recipe (default field) |
+   | Title         | String   | title of Recipe |
+   | imageUrl      | String   | URL to recipe photo |
+   | summary       | String   | description of recipe | 
+   | createdAt     | DateTime | date when recipe is created (default field) |
+   | updatedAt     | DateTime | date when recipe is last updated (default field) |
+   
+   
+#### Recipe_Favorites (when user "favorites" a recipee
+
+   | Property      | Type     | Description |
+   | ------------- | -------- | ------------|
+   | objectId      | String   | unique id for the recipe_favorite (default field) |
+   | userId        | Pointer to User | user that favorited the recipe |
+   | imageUrl      | Pointer to Recipe | recipe user favorited |
+   | createdAt     | DateTime | date when recipe is favorited (default field) |
+   | updatedAt     | DateTime | date when recipe_favorites is last updated (default field) |
+   
+
+### Networking
+#### List of network requests by screen
+  - Login/Register Screen
+      - (Read/GET) Query logged in user object
+      - (Create/POST) Create a new user 
+  - User Feed (Stream) Screen
+      - (Read/GET) Query most recent posts
+      - (Create/POST) Create a new "fond" on a post
+      - (Delete/DEL) Delete a "fond" from a previously "fond"-ed post
+  - Photo Capture Screen
+      - (Create/POST) Create a new post object
+  - Search (stream) Screen
+      - No Parse interaction for this page     
+  - Advanced Search (stream) Screen
+      - No Parse interaction for this page
+  - Saved Recipes (Stream) Screen
+      - (Read/GET) Query user's favorited recipe
+  - Profile Screen
+      - (Read/GET) Query user's posts
+      
+#### Existing API Endpoints
+##### [Spoonacular](https://spoonacular.com/food-api)
+- Base URL - [https://api.spoonacular.com](https://api.spoonacular.com)
+
+   HTTP Verb | Endpoint | Description
+   ----------|----------|------------
+    `GET`    |/recipes/random | get random list of recipes
+    `GET`    | /recipes/complexSearch?query={query} | return recipes by natural language search query
+    `GET`    | /recipes/complexSearch?intolerances={intolerances} | return recipes by omitting allergies (e.g. gluten)
+    `GET`    | /recipes/complexSearch?cuisine={cuisine} | return recipes by cuisine
+    `GET`    | /recipes/complexSearch?includeIngredients={includeIngredients} | return recipes that include certain ingredients
+    `GET`    | /recipes/complexSearch?excludeIngredients={excludeIngredients} | return recipes that exclude certain ingredients
+    `GET`    | recipes/{id}/similar | get similar recipes
+    `GET`    | /recipes/{id}/information | get recipe details
+
+## 🔨 Fond is built with
+  - [Back4App](https://dashboard.back4app.com/apps)
+  - [Spoonacular](https://spoonacular.com/food-api)
+  - [Retrofit](https://square.github.io/retrofit/)
+
+## 😋 Authors
+  - [Kat Kime](https://github.com/kat-kime)
+  - [Mae LaPresta](https://github.com/mlapresta)
+  - [K. McFarland](https://github.com/mcfarkar)
+  - [Gavin Slusher](https://github.com/GavinSlusher)
+
+## 🖥 Running Locally
+  - Clone the repository: `git clone https://github.com/FondApp/Fond.git`
+  - Open the project in the Android Studio
+  - Rename the `apikey.properties.example` file to `apikey.properties` and add the missing keys.
+  - Run the emulator.
+  
+## 📱 Phone Emulator
+  - This application has been developed on a Pixel 2 XL emulator
