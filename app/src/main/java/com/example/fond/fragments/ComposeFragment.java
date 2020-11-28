@@ -23,7 +23,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.fond.R;
+import com.example.fond.models.UserPost;
+import com.parse.ParseException;
+import com.parse.ParseFile;
 import com.parse.ParseUser;
+import com.parse.SaveCallback;
 
 import static android.app.Activity.RESULT_OK;
 import java.io.File;
@@ -83,14 +87,34 @@ public class ComposeFragment extends Fragment {
                     return;
                 }
 
-                // TODO: Post image to database
                 ParseUser currentUser = ParseUser.getCurrentUser();
+                savePost(currentUser, caption, photoFile);
 
                 // TODO: Go to home fragment (navigating between fragments)
             }
         });
 
         launchCamera();
+    }
+
+    private void savePost(ParseUser currentUser, String caption, File photoFile) {
+        UserPost post = new UserPost();
+
+        post.setUser(currentUser);
+        post.setDescription(caption);
+        post.setImage(new ParseFile(photoFile));
+
+        post.saveInBackground(new SaveCallback() {
+            @Override
+            public void done(ParseException e) {
+                if (e != null) {
+                    Log.e(TAG, "Error while saving");
+                    Toast.makeText(getContext(), "Error - photo not saved", Toast.LENGTH_SHORT).show();
+                }
+
+                Log.i(TAG, "Photo saved successfully");
+            }
+        });
     }
 
     private void launchCamera() {
