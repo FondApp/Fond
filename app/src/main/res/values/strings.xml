@@ -8,4 +8,5 @@
     <string name="fond_logo">Fond Logo</string>
     <string name="create_usrname">Create a username</string>
     <string name="choose_password">Choose a password</string>
+    <string name="recipe_image">recipe image</string>
 </resources>

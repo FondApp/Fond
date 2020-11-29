@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +14,10 @@ import android.view.ViewGroup;
 import com.example.fond.R;
 
 public class searchRecipeFragment extends Fragment {
+    public static final String TAG="SearchRecipeFragment";
+    private RecyclerView rvSearchRecipes;
+    protected  RecipeAdapter adapter;
+
 
     public searchRecipeFragment() {
         // Required empty public constructor
