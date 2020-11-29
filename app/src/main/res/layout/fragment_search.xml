@@ -7,22 +7,10 @@
     tools:context=".fragments.searchRecipeFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="Recipe Search"
-        android:textAllCaps="false"
-        android:textSize="24sp"
-        android:textStyle="bold" />
-    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-        android:id="@+id/swipeContainerSearch"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvSearchRecipes"
+        android:padding="8dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
-    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 </FrameLayout>
