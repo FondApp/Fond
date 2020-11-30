@@ -1,4 +1,4 @@
-Unit 9: Group Milestone - README
+Unit 10: Group Milestone - README
 ===
 
 # 🔥 Fond 
@@ -8,10 +8,10 @@ Unit 9: Group Milestone - README
 2. [Product Spec](#Product-Spec)
 3. [Wireframes](#Wireframes)
 4. [Schema](#Schema)
-5. [Built With](#Fond-is-Built-With)
-6. [Authors](#Authors)
-7. [Running Locally](#Running-Locally)
-8. [Phone Emulator](#Phone-Emulator)
+5. [Built With](#-Fond-is-Built-With)
+6. [Authors](#-Authors)
+7. [Running Locally](#-Running-Locally)
+8. [Phone Emulator](#-Phone-Emulator)
 
 ## Overview
 ### Description
@@ -33,15 +33,25 @@ Fond is a mobile application that allows hungry foodies and passionate chefs to 
 
 #### Required Must-have Stories  
 
-* [ 1 ] User can register a new account
-* [ 2 ] User can login
-* [ 3 ] User sees app icon in home screen and styled bottom navigation view.
-* [ 4 ] User can see a feed of recent user-generated photos
-* [ 7 ] API returns a list of recipes that user make
-* [ 8 ] User can take a picture of recipe they made
-* [ 10 ] User can search for recipes based on title
-* [ 13 ] User can filter search based on ingredients // The search results are unrelated to pantry. This is a simple, return of API data
-* [ 23 ] User can see a personal feed of what they’ve posted
+- [X] [ 1 ] User can register a new account
+- [X] [ 2 ] User can login
+- [ ] [ 3 ] User sees app icon in home screen and styled bottom navigation view.
+  - [ ] User sees app icon in home screen.
+  - [X] User sees styled bottom navigation view.
+- [ ] [ 4 ] User can see a feed of recent user-generated photos
+  - [X] Create posts feed fragment. (i.e. User Feed)
+  - [ ] User can see a feed of recent user-generated photos.
+- [ ] [ 7 ] List of user's "favorited" recipes returned.
+  - [X] Create "favorited" recipes fragment. (i.e. Saved Recipes)
+  - [ ] List of user's "favorited" recipes returned.
+- [ ] [ 8 ] User can take a picture of recipe they made
+- [ ] [ 10 ] User can search for recipes
+  - [X] Create recipes fragment. (i.e. Recipe Search)
+  - [ ] API returns a list of recipes that user can make.
+- [ ] [ 13 ] User can filter search based on ingredients // The search results are unrelated to pantry. This is a simple, return of API data
+- [ ] [ 23 ] User can see a personal feed of what they’ve posted
+  - [X] Create profile fragment.
+  - [ ] User can see a personal feed of what they’ve posted
 
 #### Optional Stories
 
@@ -83,6 +93,13 @@ Fond is a mobile application that allows hungry foodies and passionate chefs to 
 * [ 44 ] User can see articles 
 * [ 45 ] We deploy the app on the app store
 * [ 34 ] User can find an ingredient based on barcode
+
+## Video Walkthrough
+
+Here's a walkthrough of implemented user stories:
+
+<img src='https://i.imgur.com/SiZLatn.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
 
 ### 2. Screen Archetypes 
 
