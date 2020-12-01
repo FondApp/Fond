@@ -45,4 +45,5 @@ dependencies {
     // Added for the Bottom Navigation View
     implementation "androidx.appcompat:appcompat:${appCompatVersion}"
     implementation "com.google.android.material:material:${designSupportVersion}"
+
 }
