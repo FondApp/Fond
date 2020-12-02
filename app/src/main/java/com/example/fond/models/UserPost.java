@@ -57,7 +57,7 @@ public class UserPost extends ParseObject {
     public void setImage(ParseFile file) {
         put(KEY_IMAGE, file);
     }
-    
+
     public ParseFile getUserProfile() {
         try {
             return getParseUser(KEY_USER).getParseFile(KEY_PROFILE_PIC);

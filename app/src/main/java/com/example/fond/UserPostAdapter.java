@@ -10,7 +10,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.fond.models.UserPost;
+import com.parse.ParseFile;
 
 import java.util.List;
 
@@ -71,6 +73,17 @@ public class UserPostAdapter extends RecyclerView.Adapter<UserPostAdapter.ViewHo
             // Fill the views with actual data
             tvUsername.setText(post.getUsername());
             tvCaption.setText(post.getDescription());
+
+            // Using glide to load the user profile
+            ParseFile profile = post.getUserProfile();
+            if (profile != null) {
+                Glide.with(context).load(profile.getUrl()).into(ivUserProfile);
+            }
+
+            ParseFile image = post.getImage();
+            if (image != null) {
+                Glide.with(context).load(profile.getUrl()).into(ivImage);
+            }
         }
     }
 }

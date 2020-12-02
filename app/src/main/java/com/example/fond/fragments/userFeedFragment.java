@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
@@ -13,18 +14,22 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.fond.R;
+import com.example.fond.UserPostAdapter;
 import com.example.fond.models.UserPost;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class userFeedFragment extends Fragment {
 
     private RecyclerView rvUserPosts;
     private String TAG = "UserFeedFragment";
+    private UserPostAdapter adapter;
+    private List<UserPost> allPosts;
 
     public userFeedFragment() {
         // Required empty public constructor
@@ -49,10 +54,19 @@ public class userFeedFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         //     called after onCreateView() and ensures that the fragment's root view is non-null.
         //     Any view setup should happen here. E.g., view lookups, attaching listeners
-        queryPosts();
-        // findUsers();
 
+        // Creating a list of posts
+        allPosts = new ArrayList<>();
+
+        // Setting the recycler view
         rvUserPosts = view.findViewById(R.id.rvUserPosts);
+
+        // Creating an adapter
+        adapter = new UserPostAdapter(getContext(), allPosts);
+        rvUserPosts.setAdapter(adapter);
+        rvUserPosts.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        queryPosts();
 
 
         // Create a RecyclerView.Adapter and ViewHolder to render the item
@@ -79,6 +93,9 @@ public class userFeedFragment extends Fragment {
                     } catch (Exception error) {
                         Log.e(TAG, "Error with grabbing username");
                     }
+
+                    allPosts.addAll(posts);
+                    adapter.notifyDataSetChanged();
                 }
             }
         });
