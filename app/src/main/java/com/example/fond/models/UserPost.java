@@ -1,5 +1,7 @@
 package com.example.fond.models;
 
+import android.util.Log;
+
 import com.parse.ParseFile;
 import com.parse.ParseObject;
 import com.parse.ParseClassName;
@@ -7,6 +9,7 @@ import com.parse.ParseUser;
 
 @ParseClassName("Post")
 public class UserPost extends ParseObject {
+    public static final String TAG = "UserPost";
 
     // Declaring all Parse post attributes
     public static final String KEY_USER = "user";
@@ -22,6 +25,17 @@ public class UserPost extends ParseObject {
 
     public ParseUser getUser() {
         return getParseUser(KEY_USER);
+    }
+
+    public String getUsername() {
+        try {
+            return getParseUser(KEY_USER).fetchIfNeeded().getUsername();
+        }
+        catch (Exception e) {
+            Log.e(TAG, "Error fetching username.");
+        }
+
+        return null;
     }
 
     public void setUser(ParseUser user) {
