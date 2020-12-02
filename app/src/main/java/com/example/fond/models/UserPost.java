@@ -57,13 +57,17 @@ public class UserPost extends ParseObject {
     public void setImage(ParseFile file) {
         put(KEY_IMAGE, file);
     }
-
-    // TODO: Add code to get the user's profile
-    /*
+    
     public ParseFile getUserProfile() {
+        try {
+            return getParseUser(KEY_USER).getParseFile(KEY_PROFILE_PIC);
+        } catch (Exception e) {
+            Log.e(TAG, "Error retrieving profile pic");
+        }
+
+        return null;
 
     }
-     */
 
     // No setter for user profile needed (set in User class)
 
