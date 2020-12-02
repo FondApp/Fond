@@ -16,6 +16,7 @@ public class UserPost extends ParseObject {
     public static final String KEY_DESCRIPTION = "description";
     public static final String KEY_IMAGE = "image";
     public static final String KEY_PROFILE_PIC = "user_profile";
+    public static final String KEY_CREATED = "createdAt";
 
 
     // Ensure that your subclass has a public default constructor

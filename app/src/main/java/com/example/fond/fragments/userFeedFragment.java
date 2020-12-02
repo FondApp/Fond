@@ -77,6 +77,7 @@ public class userFeedFragment extends Fragment {
     protected void queryPosts() {
         // Specifying the class we want to query
         ParseQuery<UserPost> query = ParseQuery.getQuery(UserPost.class);
+        query.addDescendingOrder(UserPost.KEY_CREATED);
 
         // Perform query in the background
         query.findInBackground(new FindCallback<UserPost>() {
