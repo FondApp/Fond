@@ -5,13 +5,8 @@
     android:layout_height="match_parent"
     tools:context=".fragments.searchRecipeFragment">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:minHeight="?attr/actionBarSize"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary">
-    </androidx.appcompat.widget.Toolbar>
+    <include
+        layout="@layout/toolbar_main"/>
 
     <!-- TODO: Update blank fragment layout -->
 
