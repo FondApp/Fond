@@ -82,7 +82,7 @@ public class UserPostAdapter extends RecyclerView.Adapter<UserPostAdapter.ViewHo
 
             ParseFile image = post.getImage();
             if (image != null) {
-                Glide.with(context).load(profile.getUrl()).into(ivImage);
+                Glide.with(context).load(image.getUrl()).into(ivImage);
             }
         }
     }
