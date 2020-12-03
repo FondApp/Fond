@@ -53,6 +53,7 @@ public class searchRecipeFragment extends Fragment {
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
         inflater.inflate(R.menu.menu_toolbar, menu);
         MenuItem searchItem = menu.findItem(R.id.miSearch);
+        searchItem.setVisible(true);
         SearchView searchView = (SearchView) searchItem.getActionView();
         searchView.setQueryHint("Filter...");
 
