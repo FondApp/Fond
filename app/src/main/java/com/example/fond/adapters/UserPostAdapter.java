@@ -1,4 +1,4 @@
-package com.example.fond;
+package com.example.fond.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.fond.R;
 import com.example.fond.models.UserPost;
 import com.parse.ParseFile;
 

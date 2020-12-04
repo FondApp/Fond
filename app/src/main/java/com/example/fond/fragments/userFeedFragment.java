@@ -14,7 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.fond.R;
-import com.example.fond.UserPostAdapter;
+import com.example.fond.adapters.UserPostAdapter;
 import com.example.fond.models.UserPost;
 import com.parse.FindCallback;
 import com.parse.ParseException;

@@ -16,7 +16,7 @@ import android.widget.Toast;
 
 import com.example.fond.BuildConfig;
 import com.example.fond.R;
-import com.example.fond.RecipeSearchAdapter;
+import com.example.fond.adapters.RecipeSearchAdapter;
 import com.example.fond.data.model.Recipe;
 import com.example.fond.data.model.RecipeList;
 import com.example.fond.data.remote.SpoonacularService;
