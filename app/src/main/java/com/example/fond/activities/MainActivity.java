@@ -22,6 +22,11 @@ import com.parse.ParseUser;
 
 public class MainActivity extends AppCompatActivity {
     public static final String TAG = "MainActivity";
+    private Fragment userFeedFragment;
+    private Fragment searchRecipeFragment;
+    private Fragment savedRecipesFragment;
+    private Fragment profileFragment;
+
 
     private BottomNavigationView bottomNavigationView;
 
@@ -33,10 +38,10 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigationView = findViewById(R.id.bottom_navigation);
         final FragmentManager fragmentManager = getSupportFragmentManager();
 
-        final Fragment userFeedFragment = new userFeedFragment();
-        final Fragment searchRecipeFragment = new searchRecipeFragment();
-        final Fragment savedRecipesFragment = new savedRecipesFragment();
-        final Fragment profileFragment = new profileFragment();
+        userFeedFragment = new userFeedFragment();
+        searchRecipeFragment = new searchRecipeFragment();
+        savedRecipesFragment = new savedRecipesFragment();
+        profileFragment = new profileFragment();
 
 
         bottomNavigationView.setOnNavigationItemSelectedListener(

@@ -49,17 +49,10 @@ public class userFeedFragment extends Fragment {
              @Override
              public void onClick(View v) {
                  // TODO: Launch Compose Fragment
-                 launchComposeFragment();
              }}
         );
 
 
-    }
-
-    protected void launchComposeFragment() {
-        Fragment composeFragment = new ComposeFragment();
-        FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
-        transaction.replace(R.id.fragment_compose, composeFragment).commit();
     }
 
 }
