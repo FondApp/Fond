@@ -13,6 +13,7 @@ android {
         // should correspond to key/value pairs inside the file
         buildConfigField("String", "CLIENT_KEY", apikeyProperties['CLIENT_KEY'])
         buildConfigField("String", "APP_ID", apikeyProperties['APP_ID'])
+        buildConfigField("String", "SPOONACULAR_API_KEY", apikeyProperties['SPOONACULAR_API_KEY'])
 
         applicationId "com.example.fond"
         minSdkVersion 21
@@ -46,7 +47,13 @@ dependencies {
     implementation "androidx.appcompat:appcompat:${appCompatVersion}"
     implementation "com.google.android.material:material:${designSupportVersion}"
 
-    // Adding Glide functionality
+    // Added for API REST calls
+    implementation 'com.squareup.retrofit2:retrofit:2.5.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
+    implementation 'com.google.code.gson:gson:2.8.5'
+
+    //For image viewing
+
     implementation 'com.github.bumptech.glide:glide:4.11.0'
     // Glide v4 uses this new annotation processor -- see https://bumptech.github.io/glide/doc/generatedapi.html
     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
