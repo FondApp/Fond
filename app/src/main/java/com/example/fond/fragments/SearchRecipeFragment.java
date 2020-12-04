@@ -12,9 +12,9 @@ import android.view.ViewGroup;
 
 import com.example.fond.R;
 
-public class searchRecipeFragment extends Fragment {
+public class SearchRecipeFragment extends Fragment {
 
-    public searchRecipeFragment() {
+    public SearchRecipeFragment() {
         // Required empty public constructor
     }
 

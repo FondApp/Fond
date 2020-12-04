@@ -5,27 +5,30 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
 import android.widget.Toast;
 import android.util.Log;
 
-import com.example.fond.fragments.profileFragment;
-import com.example.fond.fragments.savedRecipesFragment;
-import com.example.fond.fragments.searchRecipeFragment;
-import com.example.fond.fragments.userFeedFragment;
+import com.example.fond.fragments.ComposeFragment;
+import com.example.fond.fragments.ProfileFragment;
+import com.example.fond.fragments.SavedRecipesFragment;
+import com.example.fond.fragments.SearchRecipeFragment;
+import com.example.fond.fragments.UserFeedFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import com.example.fond.R;
-import com.parse.ParseUser;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements UserFeedFragment.OnPostButtonSelectedListener{
     public static final String TAG = "MainActivity";
     private Fragment userFeedFragment;
     private Fragment searchRecipeFragment;
     private Fragment savedRecipesFragment;
     private Fragment profileFragment;
+    private Fragment composeFragment;
+    private FragmentManager fragmentManager;
 
 
     private BottomNavigationView bottomNavigationView;
@@ -36,12 +39,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         bottomNavigationView = findViewById(R.id.bottom_navigation);
-        final FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager = getSupportFragmentManager();
 
-        userFeedFragment = new userFeedFragment();
-        searchRecipeFragment = new searchRecipeFragment();
-        savedRecipesFragment = new savedRecipesFragment();
-        profileFragment = new profileFragment();
+        userFeedFragment = new UserFeedFragment();
+        searchRecipeFragment = new SearchRecipeFragment();
+        savedRecipesFragment = new SavedRecipesFragment();
+        profileFragment = new ProfileFragment();
 
 
         bottomNavigationView.setOnNavigationItemSelectedListener(
@@ -72,4 +75,15 @@ public class MainActivity extends AppCompatActivity {
         // Set default selection
         bottomNavigationView.setSelectedItemId(R.id.action_user_feed);
     }
+
+
+    @Override
+    public void onPostButtonClick(Context context) {
+        Log.i(TAG,"Launching the compose fragment");
+
+        // Launch the Compose Fragment
+        composeFragment = new ComposeFragment();
+        fragmentManager.beginTransaction().replace(R.id.flContainer, composeFragment).commit();
+    }
+
 }

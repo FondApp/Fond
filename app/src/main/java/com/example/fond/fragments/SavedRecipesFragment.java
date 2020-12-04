@@ -12,9 +12,9 @@ import android.view.ViewGroup;
 
 import com.example.fond.R;
 
-public class savedRecipesFragment extends Fragment {
+public class SavedRecipesFragment extends Fragment {
 
-    public savedRecipesFragment() {
+    public SavedRecipesFragment() {
         // Required empty public constructor
     }
 
