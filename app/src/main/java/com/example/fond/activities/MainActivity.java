@@ -98,6 +98,7 @@ public class MainActivity extends AppCompatActivity implements UserFeedFragment.
 
         // Otherwise, go back to user feed fragment, without the toast
         Log.i(TAG, "Returning back to User Feed; photo saved");
+        Toast.makeText(this, "Photo saved!", Toast.LENGTH_SHORT).show();
         userFeedFragment = new UserFeedFragment();
         fragmentManager.beginTransaction().replace(R.id.flContainer, userFeedFragment).commit();
     }
