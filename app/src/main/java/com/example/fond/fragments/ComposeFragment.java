@@ -1,5 +1,6 @@
 package com.example.fond.fragments;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -40,15 +41,34 @@ import java.io.File;
 
 public class ComposeFragment extends Fragment {
     private ImageView ivPostImage;
-    private TextView tvDescription;
+    private TextView etDescription;
     private Button btnSubmit;
     private File photoFile;
     private String photoFileName = "photo.jpg";
     public static final int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 42;
     public static final String TAG = "ComposeFragment";
+    private OnSubmitListener listener;
 
     public ComposeFragment() {
         // Required empty public constructor
+    }
+
+    public interface OnSubmitListener {
+        // Action depends on whether the exception is null or not
+        public void onDataSubmit(ParseException e);
+    }
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+
+        // Check if activity implements the listener
+        if (context instanceof OnSubmitListener) {
+            listener = (OnSubmitListener) context;
+        } else {
+            throw new ClassCastException(context.toString()
+                    + " must implement ComposeFragment.OnSubmitListener");
+        }
     }
 
     @Override
@@ -67,14 +87,14 @@ public class ComposeFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         ivPostImage = view.findViewById(R.id.ivPostImage);
-        tvDescription = view.findViewById(R.id.tvDescription);
+        etDescription = view.findViewById(R.id.etDescription);
         btnSubmit = view.findViewById(R.id.btnSubmit);
 
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Grab caption
-                String caption = tvDescription.getText().toString();
+                String caption = etDescription.getText().toString();
 
                 // Check if caption and image are available
                 if (caption.isEmpty()) {
@@ -90,7 +110,7 @@ public class ComposeFragment extends Fragment {
                 ParseUser currentUser = ParseUser.getCurrentUser();
                 savePost(currentUser, caption, photoFile);
 
-                // TODO: Go to home fragment (navigating between fragments)
+
             }
         });
 
@@ -113,6 +133,7 @@ public class ComposeFragment extends Fragment {
                 }
 
                 Log.i(TAG, "Photo saved successfully");
+                listener.onDataSubmit(e);
             }
         });
     }

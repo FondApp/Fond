@@ -20,8 +20,9 @@ import com.example.fond.fragments.UserFeedFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import com.example.fond.R;
+import com.parse.ParseException;
 
-public class MainActivity extends AppCompatActivity implements UserFeedFragment.OnPostButtonSelectedListener{
+public class MainActivity extends AppCompatActivity implements UserFeedFragment.OnPostButtonSelectedListener, ComposeFragment.OnSubmitListener{
     public static final String TAG = "MainActivity";
     private Fragment userFeedFragment;
     private Fragment searchRecipeFragment;
@@ -86,4 +87,18 @@ public class MainActivity extends AppCompatActivity implements UserFeedFragment.
         fragmentManager.beginTransaction().replace(R.id.flContainer, composeFragment).commit();
     }
 
+    @Override
+    public void onDataSubmit(ParseException e) {
+        // If not null, go back to user feed fragment and launch a toast to inform user
+        if (e != null) {
+            Log.i(TAG, "Error in saving post - returning to User Feed");
+            userFeedFragment = new UserFeedFragment();
+            Toast.makeText(this, "Photo not saved", Toast.LENGTH_SHORT).show();
+        }
+
+        // Otherwise, go back to user feed fragment, without the toast
+        Log.i(TAG, "Returning back to User Feed; photo saved");
+        userFeedFragment = new UserFeedFragment();
+        fragmentManager.beginTransaction().replace(R.id.flContainer, userFeedFragment).commit();
+    }
 }
