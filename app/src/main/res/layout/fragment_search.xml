@@ -1,21 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.searchRecipeFragment">
-
-    <include
-        layout="@layout/toolbar_main"/>
+    tools:context=".fragments.SearchRecipeFragment">
 
     <!-- TODO: Update blank fragment layout -->
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvSearchRecipes"
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="55dp"
-        android:padding="8dp" />
+        android:gravity="center"
+        android:text="Recipe Search"
+        android:textAllCaps="false"
+        android:textSize="24sp"
+        android:textStyle="bold" />
 
 </FrameLayout>

@@ -4,17 +4,32 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.userFeedFragment">
+    tools:context=".fragments.UserFeedFragment">
+
+    <Button
+        android:id="@+id/btnCreatePost"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="284dp"
+        android:layout_marginTop="574dp"
+        android:layout_marginBottom="5dp"
+        android:contentDescription="@string/submits_a_new_photo_post"
+        android:text="@string/post" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="157dp"
+        android:layout_marginBottom="398dp"
+        android:gravity="center"
+        android:text="@string/user_feed"
+        android:textAllCaps="false"
+        android:textSize="24sp"
+        android:textStyle="bold" />
 
 
-    <include
-        layout="@layout/toolbar_main"/>
-
-    <!-- TODO: Update blank fragment layout -->
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvUserPosts"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="8dp" />
 </RelativeLayout>
