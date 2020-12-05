@@ -311,7 +311,8 @@ Here's a walkthrough of implemented user stories:
    | Property      | Type     | Description |
    | ------------- | -------- | ------------|
    | objectId      | String   | unique id for the recipe (default field) |
-   | Title         | String   | title of Recipe |
+   | recipeId      | Integer  | id in spoonacular database |
+   | title         | String   | title of Recipe |
    | imageUrl      | String   | URL to recipe photo |
    | summary       | String   | description of recipe | 
    | createdAt     | DateTime | date when recipe is created (default field) |
