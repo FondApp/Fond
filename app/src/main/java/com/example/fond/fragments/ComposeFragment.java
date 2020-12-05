@@ -36,7 +36,7 @@ import java.io.File;
 
 public class ComposeFragment extends Fragment {
     private ImageView ivPostImage;
-    private TextView tvDescription;
+    private TextView etDescription;
     private Button btnSubmit;
     private File photoFile;
     private String photoFileName = "photo.jpg";
@@ -63,14 +63,14 @@ public class ComposeFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         ivPostImage = view.findViewById(R.id.ivPostImage);
-        tvDescription = view.findViewById(R.id.tvDescription);
+        etDescription = view.findViewById(R.id.etDescription);
         btnSubmit = view.findViewById(R.id.btnSubmit);
 
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Grab caption
-                String caption = tvDescription.getText().toString();
+                String caption = etDescription.getText().toString();
 
                 // Check if caption and image are available
                 if (caption.isEmpty()) {

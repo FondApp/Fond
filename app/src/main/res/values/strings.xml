@@ -16,4 +16,5 @@
     <string name="enter_a_caption">Enter a caption...</string>
     <string name="submit">Submit</string>
     <string name="captured_image">Captured image</string>
+    <string name="post">Post</string>
 </resources>
