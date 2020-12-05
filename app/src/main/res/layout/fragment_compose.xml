@@ -16,7 +16,7 @@
         android:contentDescription="@string/captured_image"
         tools:src="@tools:sample/avatars" />
 
-    <TextView
+    <EditText
         android:id="@+id/etDescription"
         android:layout_width="406dp"
         android:layout_height="69dp"
