@@ -1,5 +1,6 @@
 package com.example.fond.fragments;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -12,6 +13,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
@@ -27,13 +29,16 @@ import android.widget.Toast;
 import com.example.fond.BuildConfig;
 import com.example.fond.R;
 import com.example.fond.adapters.RecipeSearchAdapter;
+import com.example.fond.data.model.ComplexSearchResults;
 import com.example.fond.data.model.Recipe;
 import com.example.fond.data.model.RecipeList;
 import com.example.fond.data.remote.SpoonacularService;
 import com.example.fond.data.remote.SpoonacularUtils;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -112,6 +117,36 @@ public class SearchRecipeFragment extends Fragment {
             @Override
             public boolean onQueryTextSubmit(String query) {
                 Toast.makeText(getContext(), "You searched for " + query, Toast.LENGTH_SHORT).show();
+
+                final Map<String, String> recipeData = new HashMap<>();
+                recipeData.put("query", query);
+
+                service.getSearchedRecipes(apiKey, recipeData).enqueue(new Callback<ComplexSearchResults>() {
+                    @RequiresApi(api = Build.VERSION_CODES.O)
+                    @Override
+                    public void onResponse(Call<ComplexSearchResults> call, Response<ComplexSearchResults> response) {
+                        if(response.isSuccessful()){
+
+                            String recipeIds = response.body().getSearchIds();
+                            Log.d(TAG, "posts loaded from API " + recipeIds);
+
+//                            service.getSearchedRecipes(recipeData).enqueue((new Callback<RecipeList>() {
+//                            }));
+
+                        }else{
+                            Log.d(TAG, "ERROR: " + response.code());
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<ComplexSearchResults> call, Throwable t) {
+                        Log.d(TAG, "ERROR: "+ t.toString());
+                    }
+                });
+
+
+
+
                 return false;
             }
 
