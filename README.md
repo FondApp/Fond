@@ -38,17 +38,16 @@ Fond is a mobile application that allows hungry foodies and passionate chefs to 
 - [ ] [ 3 ] User sees app icon in home screen and styled bottom navigation view.
   - [ ] User sees app icon in home screen.
   - [X] User sees styled bottom navigation view.
-- [x] [ 4 ] User can see a feed of recent user-generated photos
+- [ ] [ 4 ] User can see a feed of recent user-generated photos
   - [X] Create posts feed fragment. (i.e. User Feed)
-  - [x] User can see a feed of recent user-generated photos.
+  - [ ] User can see a feed of recent user-generated photos.
 - [ ] [ 7 ] List of user's "favorited" recipes returned.
   - [X] Create "favorited" recipes fragment. (i.e. Saved Recipes)
   - [ ] List of user's "favorited" recipes returned.
 - [ ] [ 8 ] User can take a picture of recipe they made
 - [ ] [ 10 ] User can search for recipes
   - [X] Create recipes fragment. (i.e. Recipe Search)
-  - [x] API returns a list of recipes that user can make.
-  - [x] Implement Search toolbar
+  - [ ] API returns a list of recipes that user can make.
 - [ ] [ 13 ] User can filter search based on ingredients // The search results are unrelated to pantry. This is a simple, return of API data
 - [ ] [ 23 ] User can see a personal feed of what they’ve posted
   - [X] Create profile fragment.
@@ -56,57 +55,53 @@ Fond is a mobile application that allows hungry foodies and passionate chefs to 
 
 #### Optional Stories
 
-* - [ ] [ 31 ] Screen stays on (light doesn’t dim) while user has the recipe open
-* - [ ] [ 11 ] User can create a persisted list of ingredients 
-* - [x] [ 5 ] User feed is filled with most popular recipes
-* - [ ] [ 6 ] User can see similar recipes to the one they selected on their feed
-* - [ ] [ 15 ] User can filter search based on including ingredients that are in their inventory of ingredients
-* - [ ] [ 18 ] User can filter search based on food genre (Italian, Mexican, etc)
-* - [ ] [ 24 ] User can like recipes
-* - [ ] [ 25 ] User can like others’ pictures of recipes
-* - [ ] [ 27 ] User can favorite recipes 
-* - [ ] [ 33 ] User is able to check off what has been completed when making the recipe 
-* - [ ] [ 35 ] User can see a history of recipes they’ve tried
-* - [ ] [ 36 ] User can save recipe lists for meal planning
-* - [ ] [ 37 ] User can click on a recipe ingredient to see what substitutes might work/have been used
-* - [ ] [ 39 ] User can see number of overall likes for each recipe post
-* - [ ] [ 42 ] User can pull up a conversion chart (i.e. 1 tbsp = 3 tsp)
-* - [ ] [ 14 ] User can filter search based on excluding ingredients 
-* - [ ] [ 16 ] User can filter search based on excluding ingredients that are in their profile settings
-* - [ ] [ 17 ] User can have a list of xx? recipes returned to them that maximize the ingredients they have on hand and minimize the ones they don’t
-* - [ ] [ 19 ] User can filter search based on food Cook time (40 minutes total time)
-* - [ ] [ 20 ] User can filter search based on appliances available / unavailable (air fryer, instapot, etc.)
-* - [ ] [ 21 ] User can filter search based on nutritional data
-* - [ ] [ 26 ] User can attach their own photo to a recipe [attaching a photo and attaching photo to a recipe are 2 different things to my mind]
-* - [ ] [ 29 ] User can save a list of currently available ingredients
-* - [ ] [ 32 ] Have a ‘table of contents’ sidebar a la Wikipedia’s mobile app (User’s reported getting lost w/in the recipe)
-* - [ ] [ 40 ] User can see number of likes for each recipe post from their foodie friends (i.e. vouching from ppl they know)
-* - [ ] [ 41 ] User can query recipes that do not use chosen kitchen equipment
-* - [ ] [ 43 ] Businesses can post ads 
+* [ 31 ] Screen stays on (light doesn’t dim) while user has the recipe open
+* [ 11 ] User can create a persisted list of ingredients 
+* [ 5 ] User feed is filled with most popular recipes
+* [ 6 ] User can see similar recipes to the one they selected on their feed
+* [ 15 ] User can filter search based on including ingredients that are in their inventory of ingredients
+* [ 18 ] User can filter search based on food genre (Italian, Mexican, etc)
+* [ 24 ] User can like recipes
+* [ 25 ] User can like others’ pictures of recipes
+* [ 27 ] User can favorite recipes 
+* [ 33 ] User is able to check off what has been completed when making the recipe 
+* [ 35 ] User can see a history of recipes they’ve tried
+* [ 36 ] User can save recipe lists for meal planning
+* [ 37 ] User can click on a recipe ingredient to see what substitutes might work/have been used
+* [ 39 ] User can see number of overall likes for each recipe post
+* [ 42 ] User can pull up a conversion chart (i.e. 1 tbsp = 3 tsp)
+* [ 14 ] User can filter search based on excluding ingredients 
+* [ 16 ] User can filter search based on excluding ingredients that are in their profile settings
+* [ 17 ] User can have a list of xx? recipes returned to them that maximize the ingredients they have on hand and minimize the ones they don’t
+* [ 19 ] User can filter search based on food Cook time (40 minutes total time)
+* [ 20 ] User can filter search based on appliances available / unavailable (air fryer, instapot, etc.)
+* [ 21 ] User can filter search based on nutritional data
+* [ 26 ] User can attach their own photo to a recipe [attaching a photo and attaching photo to a recipe are 2 different things to my mind]
+* [ 29 ] User can save a list of currently available ingredients
+* [ 32 ] Have a ‘table of contents’ sidebar a la Wikipedia’s mobile app (User’s reported getting lost w/in the recipe)
+* [ 40 ] User can see number of likes for each recipe post from their foodie friends (i.e. vouching from ppl they know)
+* [ 41 ] User can query recipes that do not use chosen kitchen equipment
+* [ 43 ] Businesses can post ads 
 
 #### Stretch Stories
 
-* - [ ] [ 12 ] User given option to select from a list of recommended staples to add to their inventory
-* - [ ] [ 22 ] User can filter recipes based on the food plan they are following (Paleo, Whole30, Gluten-free, Atkins, Keto, etc)
-* - [ ] [ 28 ] User can scale recipe based on number of people
-* - [ ] [ 30 ] User can build a shopping list with missing recipe ingredients
-* - [ ] [ 38 ] When a recipe says “do x for 15 minutes”, user can click on that to start a timer
-* - [ ] [ 44 ] User can see articles 
-* - [ ] [ 45 ] We deploy the app on the app store
-* - [ ] [ 34 ] User can find an ingredient based on barcode
+* [ 12 ] User given option to select from a list of recommended staples to add to their inventory
+* [ 22 ] User can filter recipes based on the food plan they are following (Paleo, Whole30, Gluten-free, Atkins, Keto, etc)
+* [ 28 ] User can scale recipe based on number of people
+* [ 30 ] User can build a shopping list with missing recipe ingredients
+* [ 38 ] When a recipe says “do x for 15 minutes”, user can click on that to start a timer
+* [ 44 ] User can see articles 
+* [ 45 ] We deploy the app on the app store
+* [ 34 ] User can find an ingredient based on barcode
 
-### 2. 🎥 Video Walkthrough
+## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
 
 <img src='https://i.imgur.com/SiZLatn.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
-#### 12/4/2020 update:
 
-<img src='http://g.recordit.co/8rL6tMN2iu.gif' title='Dec 4th update' width='' alt='Dec 4th update' /> 
-
-
-### 3. Screen Archetypes 
+### 2. Screen Archetypes 
 
 #### Login Screen
 * Required Stories
@@ -206,7 +201,7 @@ Here's a walkthrough of implemented user stories:
     * [ 45 ] We deploy the app on the app store
 
 
-### 4. Navigation 
+### 3. Navigation 
 
 #### Tab Navigation (Tab to Screen)
 
@@ -383,4 +378,3 @@ Here's a walkthrough of implemented user stories:
   
 ## 📱 Phone Emulator
   - This application has been developed on a Pixel 2 XL emulator
-  
