@@ -6,6 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".fragments.UserFeedFragment">
 
+    <include
+        layout="@layout/toolbar_main"/>
     <Button
         android:id="@+id/btnCreatePost"
         android:layout_width="wrap_content"
