@@ -76,7 +76,7 @@ public class userFeedFragment extends Fragment {
         allPosts = new ArrayList<>();
 
         // Setting the recycler view
-        rvUserPosts = view.findViewById(R.id.rvUserPosts);
+        rvUserPosts = getView().findViewById(R.id.rvUserPosts);
 
         // Creating an adapter
         adapter = new UserPostAdapter(getContext(), allPosts);
