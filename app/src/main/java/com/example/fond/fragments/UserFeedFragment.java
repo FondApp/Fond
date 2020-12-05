@@ -128,10 +128,6 @@ public class UserFeedFragment extends Fragment {
 
         queryPosts();
 
-
-        // Create a RecyclerView.Adapter and ViewHolder to render the item
-        // Bind the adapter to the data source to populate the RecyclerView
-
     }
 
     protected void queryPosts() {

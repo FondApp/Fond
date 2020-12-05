@@ -9,6 +9,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.example.fond.fragments.ComposeFragment;
 import com.example.fond.fragments.ProfileFragment;
@@ -18,8 +19,9 @@ import com.example.fond.fragments.UserFeedFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import com.example.fond.R;
+import com.parse.ParseException;
 
-public class MainActivity extends AppCompatActivity implements UserFeedFragment.OnPostButtonSelectedListener {
+public class MainActivity extends AppCompatActivity implements UserFeedFragment.OnPostButtonSelectedListener, ComposeFragment.OnSubmitListener {
     public static final String TAG = "MainActivity";
     protected Fragment userFeedFragment;
     protected Fragment searchRecipeFragment;
@@ -79,5 +81,21 @@ public class MainActivity extends AppCompatActivity implements UserFeedFragment.
         // Launch the Compose Fragment
         composeFragment = new ComposeFragment();
         fragmentManager.beginTransaction().replace(R.id.flContainer, composeFragment).commit();
+    }
+
+    @Override
+    public void onDataSubmit(ParseException e) {
+        // If not null, go back to user feed fragment and launch a toast to inform user
+        if (e != null) {
+            Log.i(TAG, "Error in saving post - returning to User Feed");
+            Toast.makeText(this, "Photo not saved", Toast.LENGTH_SHORT).show();
+        } else {
+            // Otherwise, go back to user feed fragment, without the toast
+            Log.i(TAG, "Returning back to User Feed; photo saved");
+            Toast.makeText(this, "Photo saved!", Toast.LENGTH_SHORT).show();
+        }
+
+        userFeedFragment = new UserFeedFragment();
+        fragmentManager.beginTransaction().replace(R.id.flContainer, userFeedFragment).commit();
     }
 }
