@@ -8,13 +8,17 @@
 
 
     <include
-        layout="@layout/toolbar_main"/>
+        layout="@layout/toolbar_main"
+        android:id="@+id/toolbar"
+        />
 
     <!-- TODO: Update blank fragment layout -->
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvUserPosts"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="675dp"
+        android:layout_below="@+id/toolbar"
+        android:layout_marginTop="0dp"
         android:padding="8dp" />
 </RelativeLayout>
