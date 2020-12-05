@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.userFeedFragment">
+    tools:context=".fragments.UserFeedFragment">
 
 
     <include
@@ -21,4 +21,14 @@
         android:layout_below="@+id/toolbar"
         android:layout_marginTop="0dp"
         android:padding="8dp" />
+
+    <Button
+        android:id="@+id/btnPost"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/toolbar"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="289dp"
+        android:layout_marginBottom="-618dp"
+        android:text="@string/post" />
 </RelativeLayout>

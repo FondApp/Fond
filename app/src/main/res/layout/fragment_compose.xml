@@ -16,8 +16,8 @@
         android:contentDescription="@string/captured_image"
         tools:src="@tools:sample/avatars" />
 
-    <TextView
-        android:id="@+id/tvDescription"
+    <EditText
+        android:id="@+id/etDescription"
         android:layout_width="406dp"
         android:layout_height="69dp"
         android:layout_below="@+id/ivPostImage"
@@ -31,7 +31,7 @@
         android:id="@+id/btnSubmit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/tvDescription"
+        android:layout_below="@+id/etDescription"
         android:layout_marginStart="5dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="5dp"

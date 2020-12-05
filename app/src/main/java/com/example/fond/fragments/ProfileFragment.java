@@ -19,9 +19,9 @@ import android.widget.Toast;
 
 import com.example.fond.R;
 
-public class savedRecipesFragment extends Fragment {
+public class ProfileFragment extends Fragment {
 
-    public savedRecipesFragment() {
+    public ProfileFragment() {
         // Required empty public constructor
     }
 
@@ -37,7 +37,7 @@ public class savedRecipesFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 //        onCreateView() is called by Android once the Fragment should inflate a view
-        return inflater.inflate(R.layout.fragment_saved_recipes, container, false);
+        return inflater.inflate(R.layout.fragment_profile, container, false);
     }
 
     @Override
@@ -45,7 +45,6 @@ public class savedRecipesFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 //     called after onCreateView() and ensures that the fragment's root view is non-null.
 //     Any view setup should happen here. E.g., view lookups, attaching listeners
-
         Toolbar toolbar = (Toolbar) view.findViewById(R.id.toolbar);
         ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
     }
@@ -53,23 +52,6 @@ public class savedRecipesFragment extends Fragment {
     @Override
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
         inflater.inflate(R.menu.menu_toolbar, menu);
-        MenuItem searchItem = menu.findItem(R.id.miSearch);
-        searchItem.setVisible(true);
-        SearchView searchView = (SearchView) searchItem.getActionView();
-        searchView.setQueryHint("Search Saved Recipes");
-
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                Toast.makeText(getContext(), "You searched for " + query, Toast.LENGTH_SHORT).show();
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                return false;
-            }
-        });
         super.onCreateOptionsMenu(menu, inflater);
     }
 }

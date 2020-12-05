@@ -5,24 +5,30 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
+import android.content.Context;
 import android.os.Bundle;
-import android.view.MenuItem;
-import android.widget.FrameLayout;
-import android.widget.Toast;
 import android.util.Log;
+import android.view.MenuItem;
+import android.widget.Toast;
 
-import com.example.fond.fragments.profileFragment;
-import com.example.fond.fragments.savedRecipesFragment;
-import com.example.fond.fragments.searchRecipeFragment;
-import com.example.fond.fragments.userFeedFragment;
+import com.example.fond.fragments.ComposeFragment;
+import com.example.fond.fragments.ProfileFragment;
+import com.example.fond.fragments.SavedRecipesFragment;
+import com.example.fond.fragments.SearchRecipeFragment;
+import com.example.fond.fragments.UserFeedFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import com.example.fond.R;
-import com.parse.ParseUser;
+import com.parse.ParseException;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements UserFeedFragment.OnPostButtonSelectedListener, ComposeFragment.OnSubmitListener {
     public static final String TAG = "MainActivity";
-
+    protected Fragment userFeedFragment;
+    protected Fragment searchRecipeFragment;
+    protected Fragment savedRecipesFragment;
+    protected Fragment profileFragment;
+    protected FragmentManager fragmentManager;
+    protected Fragment composeFragment;
     private BottomNavigationView bottomNavigationView;
 
     @Override
@@ -31,12 +37,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         bottomNavigationView = findViewById(R.id.bottom_navigation);
-        final FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager = getSupportFragmentManager();
 
-        final Fragment userFeedFragment = new userFeedFragment();
-        final Fragment searchRecipeFragment = new searchRecipeFragment();
-        final Fragment savedRecipesFragment = new savedRecipesFragment();
-        final Fragment profileFragment = new profileFragment();
+        userFeedFragment = new UserFeedFragment();
+        searchRecipeFragment = new SearchRecipeFragment();
+        savedRecipesFragment = new SavedRecipesFragment();
+        profileFragment = new ProfileFragment();
 
 
         bottomNavigationView.setOnNavigationItemSelectedListener(
@@ -66,5 +72,30 @@ public class MainActivity extends AppCompatActivity {
                 });
         // Set default selection
         bottomNavigationView.setSelectedItemId(R.id.action_user_feed);
+    }
+
+    @Override
+    public void onPostButtonClick(Context context) {
+        Log.i(TAG,"Launching the compose fragment");
+
+        // Launch the Compose Fragment
+        composeFragment = new ComposeFragment();
+        fragmentManager.beginTransaction().replace(R.id.flContainer, composeFragment).commit();
+    }
+
+    @Override
+    public void onDataSubmit(ParseException e) {
+        // If not null, go back to user feed fragment and launch a toast to inform user
+        if (e != null) {
+            Log.i(TAG, "Error in saving post - returning to User Feed");
+            Toast.makeText(this, "Photo not saved", Toast.LENGTH_SHORT).show();
+        } else {
+            // Otherwise, go back to user feed fragment, without the toast
+            Log.i(TAG, "Returning back to User Feed; photo saved");
+            Toast.makeText(this, "Photo saved!", Toast.LENGTH_SHORT).show();
+        }
+
+        userFeedFragment = new UserFeedFragment();
+        fragmentManager.beginTransaction().replace(R.id.flContainer, userFeedFragment).commit();
     }
 }

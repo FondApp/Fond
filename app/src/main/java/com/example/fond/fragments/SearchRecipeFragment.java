@@ -39,7 +39,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class searchRecipeFragment extends Fragment {
+public class SearchRecipeFragment extends Fragment {
     public static final String TAG="SearchRecipeFragment";
     private RecyclerView rvSearchRecipes;
     protected RecipeSearchAdapter adapter;
@@ -49,7 +49,7 @@ public class searchRecipeFragment extends Fragment {
     // protected  RecipeAdapter adapter;
 
 
-    public searchRecipeFragment() {
+    public SearchRecipeFragment() {
         // Required empty public constructor
     }
 
