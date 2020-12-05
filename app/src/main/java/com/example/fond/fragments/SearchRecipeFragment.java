@@ -128,13 +128,12 @@ public class SearchRecipeFragment extends Fragment {
                         if(response.isSuccessful()){
 
                             String recipeIds = response.body().getSearchIds();
-                            Log.d(TAG, "posts loaded from API " + recipeIds);
+                            Log.d(TAG, "Recipe IDs loaded: " + recipeIds);
 
-//                            service.getSearchedRecipes(recipeData).enqueue((new Callback<RecipeList>() {
-//                            }));
+                            loadBulkRecipes(recipeIds);
 
                         }else{
-                            Log.d(TAG, "ERROR: " + response.code());
+                            Log.d(TAG, "ERROR pulling up recipe IDs: " + response.code());
                         }
                     }
 
@@ -156,6 +155,25 @@ public class SearchRecipeFragment extends Fragment {
             }
         });
         super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    private void loadBulkRecipes(String recipeIds) {
+        service.getRecipeBulk(apiKey, recipeIds).enqueue(new Callback<List<Recipe>>() {
+            @Override
+            public void onResponse(Call<List<Recipe>> call, Response<List<Recipe>> response) {
+                if(response.isSuccessful()){
+                    adapter.updateRecipes(response.body());
+                    Log.d(TAG, "posts loaded from API" + response.body().toString());
+                } else {
+                    Log.d(TAG, "ERROR, returned " + response.code());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<Recipe>> call, Throwable t) {
+                Log.d(TAG, "ERROR getting bulk recipes: "+ t.toString());
+            }
+        });
     }
 
     private void loadRandomRecipes() {

@@ -25,7 +25,7 @@ public interface SpoonacularService {
     );
 
     @GET("/recipes/informationBulk")
-    Call<RecipeList> getRecipeBulk(
+    Call<List<Recipe>> getRecipeBulk(
             @Query("apiKey") String apiKey,
             @Query("ids") String ids
     );
