@@ -116,37 +116,7 @@ public class SearchRecipeFragment extends Fragment {
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
-                Toast.makeText(getContext(), "You searched for " + query, Toast.LENGTH_SHORT).show();
-
-                final Map<String, String> recipeData = new HashMap<>();
-                recipeData.put("query", query);
-
-                service.getSearchedRecipes(apiKey, recipeData).enqueue(new Callback<ComplexSearchResults>() {
-                    @RequiresApi(api = Build.VERSION_CODES.O)
-                    @Override
-                    public void onResponse(Call<ComplexSearchResults> call, Response<ComplexSearchResults> response) {
-                        if(response.isSuccessful()){
-
-                            String recipeIds = response.body().getSearchIds();
-                            Log.d(TAG, "Recipe IDs loaded: " + recipeIds);
-
-                            loadBulkRecipes(recipeIds);
-
-                        }else{
-                            Log.d(TAG, "ERROR pulling up recipe IDs: " + response.code());
-                        }
-                    }
-
-                    @Override
-                    public void onFailure(Call<ComplexSearchResults> call, Throwable t) {
-                        Log.d(TAG, "ERROR: "+ t.toString());
-                    }
-                });
-
-
-
-
-                return false;
+                return searchRecipes(query);
             }
 
             @Override
@@ -155,6 +125,35 @@ public class SearchRecipeFragment extends Fragment {
             }
         });
         super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    private boolean searchRecipes(String query) {
+        final Map<String, String> recipeData = new HashMap<>();
+        recipeData.put("query", query);
+
+        service.getSearchedRecipes(apiKey, recipeData).enqueue(new Callback<ComplexSearchResults>() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
+            @Override
+            public void onResponse(Call<ComplexSearchResults> call, Response<ComplexSearchResults> response) {
+                if(response.isSuccessful()){
+
+                    String recipeIds = response.body().getSearchIds();
+                    Log.d(TAG, "Recipe IDs loaded: " + recipeIds);
+
+                    loadBulkRecipes(recipeIds);
+
+                }else{
+                    Log.d(TAG, "ERROR pulling up recipe IDs: " + response.code());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ComplexSearchResults> call, Throwable t) {
+                Log.d(TAG, "ERROR: "+ t.toString());
+            }
+        });
+
+        return false;
     }
 
     private void loadBulkRecipes(String recipeIds) {
