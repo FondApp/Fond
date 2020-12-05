@@ -28,14 +28,14 @@ import com.parse.ParseUser;
 import java.util.ArrayList;
 import java.util.List;
 
-public class userFeedFragment extends Fragment {
+public class UserFeedFragment extends Fragment {
 
     private RecyclerView rvUserPosts;
     private String TAG = "UserFeedFragment";
     private UserPostAdapter adapter;
     private List<UserPost> allPosts;
 
-    public userFeedFragment() {
+    public UserFeedFragment() {
         // Required empty public constructor
     }
 
