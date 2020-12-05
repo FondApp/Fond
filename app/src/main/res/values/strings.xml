@@ -8,6 +8,7 @@
     <string name="fond_logo">Fond Logo</string>
     <string name="create_usrname">Create a username</string>
     <string name="choose_password">Choose a password</string>
+    <string name="recipe_image">recipe image</string>
     <string name="user_profile">User\'s profile photo</string>
     <string name="user_post_image">User post\'s image</string>
     <!-- TODO: Remove or change this placeholder text -->
@@ -15,7 +16,4 @@
     <string name="enter_a_caption">Enter a caption...</string>
     <string name="submit">Submit</string>
     <string name="captured_image">Captured image</string>
-    <string name="user_feed">User Feed</string>
-    <string name="post">Post</string>
-    <string name="submits_a_new_photo_post">Submits a new photo post.</string>
 </resources>

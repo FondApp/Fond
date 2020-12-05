@@ -13,4 +13,5 @@
 .externalNativeBuild
 .cxx
 apikey.properties
-.idea
+.idea/grade.xml
+.idea/markdown-navigator-enh.xml
