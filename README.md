@@ -325,7 +325,7 @@ Here's a walkthrough of implemented user stories:
    | ------------- | -------- | ------------|
    | objectId      | String   | unique id for the recipe_favorite (default field) |
    | userId        | Pointer to User | user that favorited the recipe |
-   | imageUrl      | Pointer to Recipe | recipe user favorited |
+   | recipeId      | Pointer to Recipe | recipe user favorited |
    | createdAt     | DateTime | date when recipe is favorited (default field) |
    | updatedAt     | DateTime | date when recipe_favorites is last updated (default field) |
    
