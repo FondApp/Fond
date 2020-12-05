@@ -311,7 +311,8 @@ Here's a walkthrough of implemented user stories:
    | Property      | Type     | Description |
    | ------------- | -------- | ------------|
    | objectId      | String   | unique id for the recipe (default field) |
-   | Title         | String   | title of Recipe |
+   | recipeId      | Integer  | id in spoonacular database |
+   | title         | String   | title of Recipe |
    | imageUrl      | String   | URL to recipe photo |
    | summary       | String   | description of recipe | 
    | createdAt     | DateTime | date when recipe is created (default field) |
@@ -324,7 +325,7 @@ Here's a walkthrough of implemented user stories:
    | ------------- | -------- | ------------|
    | objectId      | String   | unique id for the recipe_favorite (default field) |
    | userId        | Pointer to User | user that favorited the recipe |
-   | imageUrl      | Pointer to Recipe | recipe user favorited |
+   | recipeId      | Pointer to Recipe | recipe user favorited |
    | createdAt     | DateTime | date when recipe is favorited (default field) |
    | updatedAt     | DateTime | date when recipe_favorites is last updated (default field) |
    
