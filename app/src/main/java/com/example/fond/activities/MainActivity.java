@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.example.fond.fragments.ComposeFragment;
 import com.example.fond.fragments.ProfileFragment;
+import com.example.fond.fragments.RecipeDetailsFragment;
 import com.example.fond.fragments.SavedRecipesFragment;
 import com.example.fond.fragments.SearchRecipeFragment;
 import com.example.fond.fragments.UserFeedFragment;
@@ -21,7 +22,9 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.example.fond.R;
 import com.parse.ParseException;
 
-public class MainActivity extends AppCompatActivity implements UserFeedFragment.OnPostButtonSelectedListener, ComposeFragment.OnSubmitListener {
+public class MainActivity extends AppCompatActivity implements UserFeedFragment.OnPostButtonSelectedListener,
+                                                               ComposeFragment.OnSubmitListener,
+                                                               SearchRecipeFragment.onRecipeSelectedListener {
     public static final String TAG = "MainActivity";
     protected Fragment userFeedFragment;
     protected Fragment searchRecipeFragment;
@@ -97,5 +100,12 @@ public class MainActivity extends AppCompatActivity implements UserFeedFragment.
 
         userFeedFragment = new UserFeedFragment();
         fragmentManager.beginTransaction().replace(R.id.flContainer, userFeedFragment).commit();
+    }
+
+
+    @Override
+    public void onRecipeListenerClick(long id) {
+        RecipeDetailsFragment recipeDetailsFragment = RecipeDetailsFragment.newInstance(id);
+        fragmentManager.beginTransaction().replace(R.id.flContainer, recipeDetailsFragment).commit();
     }
 }

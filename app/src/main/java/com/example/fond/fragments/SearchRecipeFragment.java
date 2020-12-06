@@ -1,5 +1,6 @@
 package com.example.fond.fragments;
 
+import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -49,6 +50,7 @@ public class SearchRecipeFragment extends Fragment {
     private RecyclerView rvSearchRecipes;
     protected RecipeSearchAdapter adapter;
     protected List<Recipe> allRecipes;
+    private onRecipeSelectedListener listener;
     private SpoonacularService service;
     private String apiKey = BuildConfig.SPOONACULAR_API_KEY;
     // protected  RecipeAdapter adapter;
@@ -56,6 +58,33 @@ public class SearchRecipeFragment extends Fragment {
 
     public SearchRecipeFragment() {
         // Required empty public constructor
+    }
+
+    public interface onRecipeSelectedListener {
+        void onRecipeListenerClick(long id);
+    }
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+
+        // Check if the activity actually implements the interface
+        if (context instanceof onRecipeSelectedListener) {
+            // Assign the context to the listener
+            listener = (onRecipeSelectedListener) context;
+        }
+        // If we forgot to implement the listener, throw an error with a reminder
+        else {
+            throw new ClassCastException(context.toString()
+                    + " must implement SearchRecipeFragment.onRecipeSelectedListener");
+        }
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+
+        listener = null;
     }
 
     @Override
@@ -84,7 +113,8 @@ public class SearchRecipeFragment extends Fragment {
         adapter = new RecipeSearchAdapter(getContext(), allRecipes, new RecipeSearchAdapter.RecipeItemListener() {
             @Override
             public void onRecipeClick(long id) {
-                Toast.makeText(getContext(), "Recipe id is "+ id, Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getContext(), "Recipe id is "+ id, Toast.LENGTH_SHORT).show();
+                listener.onRecipeListenerClick(id);
             }
         });
 
