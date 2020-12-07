@@ -1,5 +1,7 @@
 package com.example.fond.fragments;
 
+import android.content.Context;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -12,6 +14,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
@@ -27,13 +30,16 @@ import android.widget.Toast;
 import com.example.fond.BuildConfig;
 import com.example.fond.R;
 import com.example.fond.adapters.RecipeSearchAdapter;
+import com.example.fond.data.model.ComplexSearchResults;
 import com.example.fond.data.model.Recipe;
 import com.example.fond.data.model.RecipeList;
 import com.example.fond.data.remote.SpoonacularService;
 import com.example.fond.data.remote.SpoonacularUtils;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -44,6 +50,7 @@ public class SearchRecipeFragment extends Fragment {
     private RecyclerView rvSearchRecipes;
     protected RecipeSearchAdapter adapter;
     protected List<Recipe> allRecipes;
+    private onRecipeSelectedListener listener;
     private SpoonacularService service;
     private String apiKey = BuildConfig.SPOONACULAR_API_KEY;
     // protected  RecipeAdapter adapter;
@@ -51,6 +58,33 @@ public class SearchRecipeFragment extends Fragment {
 
     public SearchRecipeFragment() {
         // Required empty public constructor
+    }
+
+    public interface onRecipeSelectedListener {
+        void onRecipeListenerClick(long id);
+    }
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+
+        // Check if the activity actually implements the interface
+        if (context instanceof onRecipeSelectedListener) {
+            // Assign the context to the listener
+            listener = (onRecipeSelectedListener) context;
+        }
+        // If we forgot to implement the listener, throw an error with a reminder
+        else {
+            throw new ClassCastException(context.toString()
+                    + " must implement SearchRecipeFragment.onRecipeSelectedListener");
+        }
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+
+        listener = null;
     }
 
     @Override
@@ -79,7 +113,8 @@ public class SearchRecipeFragment extends Fragment {
         adapter = new RecipeSearchAdapter(getContext(), allRecipes, new RecipeSearchAdapter.RecipeItemListener() {
             @Override
             public void onRecipeClick(long id) {
-                Toast.makeText(getContext(), "Recipe id is "+ id, Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getContext(), "Recipe id is "+ id, Toast.LENGTH_SHORT).show();
+                listener.onRecipeListenerClick(id);
             }
         });
 
@@ -111,8 +146,7 @@ public class SearchRecipeFragment extends Fragment {
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
-                Toast.makeText(getContext(), "You searched for " + query, Toast.LENGTH_SHORT).show();
-                return false;
+                return searchRecipes(query);
             }
 
             @Override
@@ -121,6 +155,54 @@ public class SearchRecipeFragment extends Fragment {
             }
         });
         super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    private boolean searchRecipes(String query) {
+        final Map<String, String> recipeData = new HashMap<>();
+        recipeData.put("query", query);
+
+        service.getSearchedRecipes(apiKey, recipeData).enqueue(new Callback<ComplexSearchResults>() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
+            @Override
+            public void onResponse(Call<ComplexSearchResults> call, Response<ComplexSearchResults> response) {
+                if(response.isSuccessful()){
+
+                    String recipeIds = response.body().getSearchIds();
+                    Log.d(TAG, "Recipe IDs loaded: " + recipeIds);
+
+                    loadBulkRecipes(recipeIds);
+
+                }else{
+                    Log.d(TAG, "ERROR pulling up recipe IDs: " + response.code());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ComplexSearchResults> call, Throwable t) {
+                Log.d(TAG, "ERROR: "+ t.toString());
+            }
+        });
+
+        return false;
+    }
+
+    private void loadBulkRecipes(String recipeIds) {
+        service.getRecipeBulk(apiKey, recipeIds).enqueue(new Callback<List<Recipe>>() {
+            @Override
+            public void onResponse(Call<List<Recipe>> call, Response<List<Recipe>> response) {
+                if(response.isSuccessful()){
+                    adapter.updateRecipes(response.body());
+                    Log.d(TAG, "posts loaded from API" + response.body().toString());
+                } else {
+                    Log.d(TAG, "ERROR, returned " + response.code());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<Recipe>> call, Throwable t) {
+                Log.d(TAG, "ERROR getting bulk recipes: "+ t.toString());
+            }
+        });
     }
 
     private void loadRandomRecipes() {
