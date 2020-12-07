@@ -7,7 +7,10 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -18,8 +21,24 @@ import android.widget.SearchView;
 import android.widget.Toast;
 
 import com.example.fond.R;
+import com.example.fond.adapters.RecipeSavedAdapter;
+import com.example.fond.models.ParseRecipe;
+import com.example.fond.models.RecipeFavorites;
+import com.parse.FindCallback;
+import com.parse.ParseException;
+import com.parse.ParseQuery;
+import com.parse.ParseUser;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class SavedRecipesFragment extends Fragment {
+
+    public static final String TAG = "SavedRecipesFragment";
+    private RecyclerView rvSavedRecipes;
+    protected RecipeSavedAdapter adapter;
+    protected List<ParseRecipe> allRecipes;
+
 
     public SavedRecipesFragment() {
         // Required empty public constructor
@@ -48,7 +67,10 @@ public class SavedRecipesFragment extends Fragment {
 
         Toolbar toolbar = (Toolbar) view.findViewById(R.id.toolbar);
         ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
+
     }
+
+
 
     @Override
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
@@ -71,5 +93,42 @@ public class SavedRecipesFragment extends Fragment {
             }
         });
         super.onCreateOptionsMenu(menu, inflater);
+
+        rvSavedRecipes = getView().findViewById(R.id.rvSavedRecipes);
+        allRecipes = new ArrayList<>();
+
+        adapter = new RecipeSavedAdapter(getContext(), allRecipes);
+
+        rvSavedRecipes.setAdapter(adapter);
+        rvSavedRecipes.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        querySavedRecipes();
+    }
+
+    protected void querySavedRecipes() {
+        ParseQuery<RecipeFavorites> query = ParseQuery.getQuery("Recipe_Favorites");
+        query.whereEqualTo("userId", ParseUser.getCurrentUser());
+        query.include("recipeId");
+
+        final List<ParseRecipe> queriedRecipes = new ArrayList<>();
+
+        query.findInBackground(new FindCallback<RecipeFavorites>(){
+
+            @Override
+            public void done(List<RecipeFavorites> recipeFavorites, ParseException e) {
+                if (recipeFavorites != null) {
+                    for (RecipeFavorites recipeFavorite : recipeFavorites ){
+                        Log.i(TAG, "Result: " + recipeFavorite.toString());
+                        ParseRecipe parseRecipe = (ParseRecipe) recipeFavorite.getParseObject("recipeId");
+                        Log.i(TAG, "ParseRecipe: "+ parseRecipe);
+                        queriedRecipes.add(parseRecipe);
+                    }
+                    adapter.updateAll(queriedRecipes);
+                } else if (e != null) {
+                    Log.e(TAG, "Error: "+ e);
+                }
+            }
+        });
+
     }
 }
