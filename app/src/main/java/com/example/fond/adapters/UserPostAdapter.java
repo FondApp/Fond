@@ -128,7 +128,7 @@ public class UserPostAdapter extends RecyclerView.Adapter<UserPostAdapter.ViewHo
             fond.saveInBackground(new SaveCallback() {
                 @Override
                 public void done(ParseException e) {
-                    if (e != null){
+                    if (e == null){
                         Log.i(TAG, "Added Fond");
                     } else {
 
