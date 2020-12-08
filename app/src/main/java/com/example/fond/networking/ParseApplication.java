@@ -3,6 +3,7 @@ package com.example.fond.networking;
 import android.app.Application;
 
 import com.example.fond.BuildConfig;
+import com.example.fond.models.Fond;
 import com.example.fond.models.ParseRecipe;
 import com.example.fond.models.RecipeFavorites;
 import com.example.fond.models.UserPost;
@@ -27,6 +28,9 @@ public class ParseApplication extends Application {
 
 
         ParseObject.registerSubclass(RecipeFavorites.class);
+
+
+        ParseObject.registerSubclass(Fond.class);
 
         // Initializing the Parse SDK
         Parse.initialize(new Parse.Configuration.Builder(this)

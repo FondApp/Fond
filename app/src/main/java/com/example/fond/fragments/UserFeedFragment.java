@@ -21,6 +21,7 @@ import android.widget.Button;
 
 import com.example.fond.R;
 import com.example.fond.adapters.UserPostAdapter;
+import com.example.fond.models.Fond;
 import com.example.fond.models.UserPost;
 import com.parse.FindCallback;
 import com.parse.ParseException;
@@ -38,6 +39,7 @@ public class UserFeedFragment extends Fragment {
     private List<UserPost> allPosts;
     private OnPostButtonSelectedListener listener;
     protected Button btnCreatePost;
+    private List<String> fondedPosts;
 
     public UserFeedFragment() {
         // Required empty public constructor
@@ -121,8 +123,11 @@ public class UserFeedFragment extends Fragment {
         // Setting the recycler view
         rvUserPosts = getView().findViewById(R.id.rvUserPosts);
 
+        // Get user's fonded posts
+        fondedPosts = getFondedPosts();
+
         // Creating an adapter
-        adapter = new UserPostAdapter(getContext(), allPosts);
+        adapter = new UserPostAdapter(getContext(), allPosts, fondedPosts);
         rvUserPosts.setAdapter(adapter);
         rvUserPosts.setLayoutManager(new LinearLayoutManager(getContext()));
 
@@ -177,5 +182,30 @@ public class UserFeedFragment extends Fragment {
             }
         });
 
+    }
+
+    public List<String> getFondedPosts() {
+        final List<String> queriedPosts = new ArrayList<>();
+
+        ParseQuery<Fond> query = ParseQuery.getQuery("Fond");
+        query.whereEqualTo("userId", ParseUser.getCurrentUser());
+        query.include("postId");
+        query.findInBackground(new FindCallback<Fond>() {
+            @Override
+            public void done(List<Fond> fonds, ParseException e) {
+                if (fonds != null){
+                    for (Fond fond : fonds) {
+                        Log.i(TAG, "Result: " + fond.toString() );
+                        UserPost post = (UserPost) fond.getParseObject("postId");
+                        queriedPosts.add(post.getObjectId());
+                    }
+                } else if (e != null){
+                    Log.e(TAG, "Error: " + e );
+                }
+
+            }
+        });
+
+        return queriedPosts;
     }
 }

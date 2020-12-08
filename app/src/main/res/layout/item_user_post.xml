@@ -55,9 +55,24 @@
         android:layout_below="@+id/ivImage"
         android:layout_marginStart="5dp"
         android:layout_marginTop="5dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginEnd="5dp"
         android:layout_marginBottom="5dp"
+        android:layout_toStartOf="@+id/chkFond"
         tools:text="Hey, this is coolio!" />
+
+    <CheckBox
+        android:id="@+id/chkFond"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/ivImage"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:button="@drawable/drawable_fond"
+        android:buttonTint="#000000"
+        android:checked="true"
+        android:textColor="#000000"
+        android:visibility="visible" />
 
 
 </RelativeLayout>
