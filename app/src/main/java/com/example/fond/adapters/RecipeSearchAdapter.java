@@ -106,13 +106,13 @@ public class RecipeSearchAdapter extends RecyclerView.Adapter<RecipeSearchAdapte
 
 
                                 } else if (e != null) {
-                                    Log.e(TAG, "Error: " + e);
+                                    Log.e(TAG, "Error line 109: " + e);
                                 }
                             }
                         });
 
                     } else if (e != null) {
-                        Log.e(TAG, "Error: " + e);
+                        Log.e(TAG, "Error line 115: " + e);
                     }
                 }
             });
@@ -181,7 +181,7 @@ public class RecipeSearchAdapter extends RecyclerView.Adapter<RecipeSearchAdapte
                     newFavorite.saveInBackground(new SaveCallback() {
                         @Override
                         public void done(ParseException e) {
-                            Log.e(TAG, "Error: " + e );
+                            Log.e(TAG, "Error line 184: " + e );
                         }
                     });
                 }
@@ -197,7 +197,7 @@ public class RecipeSearchAdapter extends RecyclerView.Adapter<RecipeSearchAdapte
                         @Override
                         public void done(ParseException e) {
                             if (e != null){
-                                Log.e(TAG, "Error: " + e );
+                                Log.e(TAG, "Error line 200: " + e );
                             } else {
                                 RecipeFavorites newFavorite = new RecipeFavorites();
                                 newFavorite.put("userId", ParseUser.getCurrentUser());
@@ -206,7 +206,9 @@ public class RecipeSearchAdapter extends RecyclerView.Adapter<RecipeSearchAdapte
                                 newFavorite.saveInBackground(new SaveCallback() {
                                     @Override
                                     public void done(ParseException e) {
-                                        Log.e(TAG, "Error: " + e );
+                                        if (e != null){
+                                            Log.e(TAG, "Error line 209: " + e );
+                                        }
                                     }
                                 });
                             }
