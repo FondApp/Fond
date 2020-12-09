@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -21,10 +22,13 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import com.example.fond.R;
 import com.parse.ParseException;
+import com.parse.ParseUser;
 
 public class MainActivity extends AppCompatActivity implements UserFeedFragment.OnPostButtonSelectedListener,
                                                                ComposeFragment.OnSubmitListener,
-                                                               SearchRecipeFragment.onRecipeSelectedListener {
+                                                               SearchRecipeFragment.onRecipeSelectedListener,
+        ProfileFragment.OnLogoutButtonSelectedListener
+{
     public static final String TAG = "MainActivity";
     protected Fragment userFeedFragment;
     protected Fragment searchRecipeFragment;
@@ -107,5 +111,16 @@ public class MainActivity extends AppCompatActivity implements UserFeedFragment.
     public void onRecipeListenerClick(long id) {
         RecipeDetailsFragment recipeDetailsFragment = RecipeDetailsFragment.newInstance(id);
         fragmentManager.beginTransaction().replace(R.id.flContainer, recipeDetailsFragment).commit();
+    }
+
+    @Override
+    public void onLogoutButtonClick(Context context) {
+        Log.i(TAG, "Loggingout");
+        Toast.makeText(context, "Goodbye!", Toast.LENGTH_SHORT).show();
+        ParseUser.logOut();
+        Intent loginscreen = new Intent(this, LoginActivity.class);
+        loginscreen.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(loginscreen);
+        this.finish();
     }
 }
