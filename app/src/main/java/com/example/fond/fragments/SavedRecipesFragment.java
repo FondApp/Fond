@@ -1,5 +1,6 @@
 package com.example.fond.fragments;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -38,10 +39,39 @@ public class SavedRecipesFragment extends Fragment {
     private RecyclerView rvSavedRecipes;
     protected RecipeSavedAdapter adapter;
     protected List<ParseRecipe> allRecipes;
+    private onRecipeSelectedListener listener;
 
 
     public SavedRecipesFragment() {
         // Required empty public constructor
+    }
+
+    public interface onRecipeSelectedListener {
+        void onRecipeListenerClick(long id);
+    }
+
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+
+        // Check if the activity actually implements the interface
+        if (context instanceof onRecipeSelectedListener) {
+            // Assign the context to the listener
+            listener = (onRecipeSelectedListener) context;
+        }
+        // If we forgot to implement the listener, throw an error with a reminder
+        else {
+            throw new ClassCastException(context.toString()
+                    + " must implement SearchRecipeFragment.onRecipeSelectedListener");
+        }
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+
+        listener = null;
     }
 
     @Override
@@ -97,7 +127,13 @@ public class SavedRecipesFragment extends Fragment {
         rvSavedRecipes = getView().findViewById(R.id.rvSavedRecipes);
         allRecipes = new ArrayList<>();
 
-        adapter = new RecipeSavedAdapter(getContext(), allRecipes);
+        adapter = new RecipeSavedAdapter(getContext(), allRecipes, new RecipeSavedAdapter.SavedRecipeItemListener() {
+            @Override
+            public void onRecipeClick(long id) {
+                Toast.makeText(getContext(), "Recipe id is "+ id, Toast.LENGTH_SHORT).show();
+                listener.onRecipeListenerClick(id);
+            }
+        });
 
         rvSavedRecipes.setAdapter(adapter);
         rvSavedRecipes.setLayoutManager(new LinearLayoutManager(getContext()));

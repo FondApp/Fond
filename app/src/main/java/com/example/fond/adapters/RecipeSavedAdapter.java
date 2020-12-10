@@ -18,6 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.fond.R;
+import com.example.fond.data.model.Recipe;
 import com.example.fond.models.ParseRecipe;
 import com.example.fond.models.RecipeFavorites;
 import com.parse.FindCallback;
@@ -29,16 +30,78 @@ import com.parse.ParseUser;
 
 import java.util.List;
 
+import io.noties.markwon.Markwon;
+
 public class RecipeSavedAdapter extends RecyclerView.Adapter<RecipeSavedAdapter.ViewHolder> {
 
     private String TAG = "RecipeSavedAdapter";
     private Context context;
     private List<ParseRecipe> parseRecipes;
+    private SavedRecipeItemListener savedRecipeItemListener;
 
-    public RecipeSavedAdapter(Context context, List<ParseRecipe> recipes ){
+    public RecipeSavedAdapter(Context context, List<ParseRecipe> recipes, SavedRecipeItemListener itemListener ){
         this.context = context;
         this.parseRecipes = recipes;
+        this.savedRecipeItemListener = itemListener;
     }
+
+    public class ViewHolder extends RecyclerView.ViewHolder implements  View.OnClickListener {
+        public RelativeLayout container;
+        public ImageView ivRecipeImage;
+        public TextView tvRecipeTitle;
+        public TextView tvRecipeSummary;
+        SavedRecipeItemListener savedRecipeItemListener;
+        public CheckBox chkBookmark;
+
+        public ViewHolder(@NonNull View itemView, SavedRecipeItemListener savedRecipeItemListener) {
+            super(itemView);
+            container = itemView.findViewById(R.id.container);
+            ivRecipeImage = itemView.findViewById(R.id.ivRecipeImage);
+            tvRecipeTitle = itemView.findViewById(R.id.tvRecipeTitle);
+            tvRecipeSummary = itemView.findViewById(R.id.tvRecipeSummary);
+            chkBookmark = itemView.findViewById(R.id.chkBookmark);
+            this.savedRecipeItemListener = savedRecipeItemListener;
+            itemView.setOnClickListener(this);
+
+            chkBookmark.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+                    if(isChecked){
+                        Log.i(TAG, "I am at" + getAdapterPosition());
+                    }else{
+
+                        removeRecipeFavoriteParse(parseRecipes.get(getAdapterPosition()));
+                        parseRecipes.remove(getAdapterPosition());
+                        notifyDataSetChanged();
+
+                    }
+                }
+            });
+
+        }
+
+        @Override
+        public void onClick(View view) {
+            ParseRecipe recipe = getRecipe(getAdapterPosition());
+            this.savedRecipeItemListener.onRecipeClick(recipe.getRecipeId());
+
+            notifyDataSetChanged();
+        }
+
+        public void bind(ParseRecipe parseRecipe) {
+            final Markwon markwon = Markwon.create(context);
+            markwon.setMarkdown(tvRecipeSummary, parseRecipe.getSummary());
+            // tvRecipeSummary.setText(parseRecipe.getSummary());
+            tvRecipeTitle.setText(parseRecipe.getTitle());
+            chkBookmark.setChecked(true);
+            Glide
+                    .with(context)
+                    .load(parseRecipe.getImageUrl())
+                    .into(ivRecipeImage);
+        }
+
+    }
+
 
     @NonNull
     @Override
@@ -48,7 +111,7 @@ public class RecipeSavedAdapter extends RecyclerView.Adapter<RecipeSavedAdapter.
 
         View recipeView = inflater.inflate(R.layout.item_recipe, parent, false);
 
-        ViewHolder viewHolder = new ViewHolder(recipeView);
+        ViewHolder viewHolder = new ViewHolder(recipeView, this.savedRecipeItemListener);
         return viewHolder;
     }
 
@@ -79,46 +142,12 @@ public class RecipeSavedAdapter extends RecyclerView.Adapter<RecipeSavedAdapter.
     }
 
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
-        public ImageView ivRecipeImage;
-        public TextView tvRecipeTitle;
-        public TextView tvRecipeSummary;
-        public CheckBox chkBookmark;
+    public ParseRecipe getRecipe(int adapterPosition){
+        return parseRecipes.get(adapterPosition);
+    }
 
-        public ViewHolder(@NonNull View itemView) {
-            super(itemView);
-
-            ivRecipeImage = itemView.findViewById(R.id.ivRecipeImage);
-            tvRecipeTitle = itemView.findViewById(R.id.tvRecipeTitle);
-            tvRecipeSummary = itemView.findViewById(R.id.tvRecipeSummary);
-            chkBookmark = itemView.findViewById(R.id.chkBookmark);
-
-            chkBookmark.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-                @Override
-                public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
-                    if(isChecked){
-                        Log.i(TAG, "I am at" + getAdapterPosition());
-                    }else{
-
-                        removeRecipeFavoriteParse(parseRecipes.get(getAdapterPosition()));
-                        parseRecipes.remove(getAdapterPosition());
-                        notifyDataSetChanged();
-
-                    }
-                }
-            });
-
-        }
-
-        public void bind(ParseRecipe parseRecipe) {
-            tvRecipeSummary.setText(parseRecipe.getSummary());
-            tvRecipeTitle.setText(parseRecipe.getTitle());
-            chkBookmark.setChecked(true);
-            Glide
-                    .with(context)
-                    .load(parseRecipe.getImageUrl())
-                    .into(ivRecipeImage);
-        }
+    public interface SavedRecipeItemListener {
+        void onRecipeClick(long id);
     }
 
     private void removeRecipeFavoriteParse(ParseRecipe parseRecipe) {
