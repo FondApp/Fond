@@ -53,15 +53,4 @@
         android:layout_marginBottom="75dp"
         android:text="Log out" />
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/rvProfilePosts"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="40dp"
-        android:text="Edit Profile Pic" />
-
 </RelativeLayout>
