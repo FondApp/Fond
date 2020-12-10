@@ -30,6 +30,8 @@ import com.parse.SaveCallback;
 import java.util.ArrayList;
 import java.util.List;
 
+import io.noties.markwon.Markwon;
+
 public class RecipeSearchAdapter extends RecyclerView.Adapter<RecipeSearchAdapter.ViewHolder> {
     private List<Recipe> recipes;
     private Context context;
@@ -131,8 +133,9 @@ public class RecipeSearchAdapter extends RecyclerView.Adapter<RecipeSearchAdapte
         public void bind(Recipe recipe) {
             boolean isSaved = false;
 
-            tvRecipeTitle.setText(recipe.getTitle());
-            tvRecipeSummary.setText(recipe.getSummary());
+            final Markwon markwon = Markwon.create(context);
+            markwon.setMarkdown(tvRecipeSummary, recipe.getSummary());
+
             Glide
                     .with(context)
                     .load(recipe.getImage())
