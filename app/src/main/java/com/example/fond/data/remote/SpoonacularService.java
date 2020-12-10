@@ -19,7 +19,7 @@ public interface SpoonacularService {
             @Query("apiKey") String apiKey
     );
 
-    @GET("/recipes/complexSearch")
+    @GET("/recipes/complexSearch?instructionsRequired=true&number=100")
     Call<ComplexSearchResults> getSearchedRecipes(
             @Query("apiKey") String apiKey,
             @QueryMap Map<String, String> options
