@@ -14,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.CircleCrop;
 import com.example.fond.R;
 import com.example.fond.models.Fond;
 import com.example.fond.models.UserPost;
@@ -147,7 +148,7 @@ public class UserPostAdapter extends RecyclerView.Adapter<UserPostAdapter.ViewHo
             // Using glide to load the user profile
             ParseFile profile = post.getUserProfile();
             if (profile != null) {
-                Glide.with(context).load(profile.getUrl()).into(ivUserProfile);
+                Glide.with(context).load(profile.getUrl()).transform(new CircleCrop()).into(ivUserProfile);
             }
 
             ParseFile image = post.getImage();

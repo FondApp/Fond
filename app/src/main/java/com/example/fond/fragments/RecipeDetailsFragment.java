@@ -1,6 +1,7 @@
 package com.example.fond.fragments;
 
 import android.content.Context;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -11,6 +12,8 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.text.Html;
+import android.text.Spanned;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -37,10 +40,13 @@ import com.example.fond.data.remote.SpoonacularUtils;
 import java.util.ArrayList;
 import java.util.List;
 
-import io.noties.markwon.Markwon;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+
+import static android.text.Html.escapeHtml;
+import static android.text.Html.fromHtml;
 
 public class RecipeDetailsFragment extends Fragment {
     public static final String ID = "id";
@@ -132,11 +138,14 @@ public class RecipeDetailsFragment extends Fragment {
                     Recipe recipe = response.body();
                     Log.d(TAG, "post loaded from API" + recipe);
                     tvTitle.setText(recipe.getTitle());
-                    final Markwon markwon = Markwon.create(getContext());
-                    markwon.setMarkdown(tvRecipeSummary, recipe.getSummary());
 
                     getRecipeInstructions(recipe);
                     getRecipeIngredients(recipe);
+                    Spanned sp = Html.fromHtml(recipe.getSummary());
+                    // tvRecipeSummary.setText(recipe.getSummary());
+                    tvRecipeSummary.setText(sp);
+
+
                     Glide
                             .with(getContext())
                             .load(recipe.getImage())

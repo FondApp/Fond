@@ -1,7 +1,9 @@
 package com.example.fond.adapters;
 
 import android.content.Context;
+import android.text.Html;
 import android.text.Layout;
+import android.text.Spanned;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,7 +32,7 @@ import com.parse.ParseUser;
 
 import java.util.List;
 
-import io.noties.markwon.Markwon;
+import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
 
 public class RecipeSavedAdapter extends RecyclerView.Adapter<RecipeSavedAdapter.ViewHolder> {
 
@@ -89,14 +91,19 @@ public class RecipeSavedAdapter extends RecyclerView.Adapter<RecipeSavedAdapter.
         }
 
         public void bind(ParseRecipe parseRecipe) {
-            final Markwon markwon = Markwon.create(context);
-            markwon.setMarkdown(tvRecipeSummary, parseRecipe.getSummary());
+            int radius = 75; // corner radius, higher value = more rounded
+            int margin = 15; // crop margin, set to 0 for corners with no crop
+
+            Spanned sp = Html.fromHtml(parseRecipe.getSummary());
             // tvRecipeSummary.setText(parseRecipe.getSummary());
+            tvRecipeSummary.setText(sp);
+
             tvRecipeTitle.setText(parseRecipe.getTitle());
             chkBookmark.setChecked(true);
             Glide
                     .with(context)
                     .load(parseRecipe.getImageUrl())
+                    .transform(new RoundedCornersTransformation(radius, margin))
                     .into(ivRecipeImage);
         }
 

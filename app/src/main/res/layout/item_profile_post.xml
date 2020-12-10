@@ -8,8 +8,8 @@
 
     <ImageView
         android:id="@+id/ivPost"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:cropToPadding="false"
         android:scaleType="center"
         app:layout_constraintStart_toStartOf="parent"

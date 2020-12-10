@@ -10,6 +10,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
+
 import com.example.fond.R;
 import com.example.fond.models.UserPost;
 import com.parse.ParseFile;
@@ -55,9 +57,11 @@ public class ProfilePostAdapter extends RecyclerView.Adapter<ProfilePostAdapter.
         }
 
         public void bind(UserPost post) {
+            int radius = 15; // corner radius, higher value = more rounded
+            int margin = 0; // crop margin, set to 0 for corners with no crop
             ParseFile postImage = post.getImage();
             if (postImage != null) {
-                Glide.with(context).load(postImage.getUrl()).into(ivPost);
+                Glide.with(context).load(postImage.getUrl()).transform(new RoundedCornersTransformation(radius, margin)).into(ivPost);
             }
         }
     }

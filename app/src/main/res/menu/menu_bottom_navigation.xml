@@ -10,13 +10,13 @@
 
     <item
         android:id="@+id/action_search"
-        android:icon="@drawable/ic_outline_search_24"
+        android:icon="@drawable/drawable_search"
         android:title="Search"
         app:showAsAction="always" />
 
     <item
         android:id="@+id/action_recipe"
-        android:icon="@drawable/drawable_fork_and_knife"
+        android:icon="@drawable/drawable_fork_and_knife2"
         android:title="Saved Recipes"
         app:showAsAction="ifRoom" />
 

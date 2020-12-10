@@ -58,6 +58,17 @@ dependencies {
     // Glide v4 uses this new annotation processor -- see https://bumptech.github.io/glide/doc/generatedapi.html
     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
 
+    // Needed to transform Glide images
+    implementation 'jp.wasabeef:glide-transformations:4.1.0'
+    // If you want to use the GPU Filters
+    implementation 'jp.co.cyberagent.android:gpuimage:2.0.4'
+
+
+    //MDC
+    implementation 'com.google.android.material:material:1.2.1'
+
+
+
     //markwon parser
 
     final def markwon_version = '4.6.0'

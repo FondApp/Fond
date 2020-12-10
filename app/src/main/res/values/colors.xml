@@ -1,6 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#6200EE</color>
-    <color name="colorPrimaryDark">#3700B3</color>
-    <color name="colorAccent">#03DAC5</color>
+    <!--Color palette-->
+    <color name="fond_orange_900">#e35203</color>
+    <color name="fond_orange_800">#ec6c04</color>
+    <color name="fond_orange_700">#f27c05</color><!--Color secondary-->
+    <color name="fond_orange_600">#f88c06</color>
+    <color name="fond_orange_500">#fc9807</color>
+    <color name="fond_orange_400">#fda729</color>
+    <color name="fond_orange_300">#fdb74e</color>
+    <color name="fond_orange_200">#fdcc81</color>
+
+    <color name="fond_teal_900">#074740</color>
+    <color name="fond_teal_800">#06635d</color>
+    <color name="fond_teal_700">#04736d</color><!--Color primary variant (light)-->
+    <color name="fond_teal_600">#02827d</color>
+    <color name="fond_teal_500">#028f8a</color><!--Color primary (light)-->
+    <color name="fond_teal_400">#25a09d</color>
+    <color name="fond_teal_300">#4bb0af</color>
+    <color name="fond_teal_200">#7fc7c6</color>
+
+
+
 </resources>
