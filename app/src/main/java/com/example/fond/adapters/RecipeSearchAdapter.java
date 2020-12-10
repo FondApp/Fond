@@ -133,6 +133,7 @@ public class RecipeSearchAdapter extends RecyclerView.Adapter<RecipeSearchAdapte
         public void bind(Recipe recipe) {
             boolean isSaved = false;
 
+            tvRecipeTitle.setText(recipe.getTitle());
             final Markwon markwon = Markwon.create(context);
             markwon.setMarkdown(tvRecipeSummary, recipe.getSummary());
 
