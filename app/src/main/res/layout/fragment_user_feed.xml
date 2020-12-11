@@ -31,4 +31,6 @@
         android:layout_marginStart="289dp"
         android:layout_marginBottom="-618dp"
         android:text="@string/post" />
+
+
 </RelativeLayout>
