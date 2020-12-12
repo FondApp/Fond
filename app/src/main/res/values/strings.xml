@@ -17,4 +17,8 @@
     <string name="submit">Submit</string>
     <string name="captured_image">Captured image</string>
     <string name="post">Post</string>
+    <string name="search">Search</string>
+    <string name="home">Home</string>
+    <string name="profile">Profile</string>
+    <string name="saved_recipes">Saved Recipes</string>
 </resources>

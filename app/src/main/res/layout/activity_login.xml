@@ -3,39 +3,14 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/ivLogo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="112dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="111dp"
-        android:layout_marginBottom="5dp"
-        android:contentDescription="@string/fond_logo"
-        app:srcCompat="@android:drawable/btn_star"
-        tools:layout_editor_absoluteX="189dp"
-        tools:layout_editor_absoluteY="16dp" />
 
-    <View
-        android:id="@+id/vDivider"
-        android:layout_width="420dp"
-        android:layout_height="2dp"
-        android:layout_below="@+id/ivLogo"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="55dp"
-        android:layout_marginEnd="0dp"
-        android:background="#CFCCCD" />
 
-    <EditText
+
+    <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/etUsername"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
@@ -50,7 +25,7 @@
         android:importantForAutofill="no"
         android:inputType="textPersonName" />
 
-    <EditText
+    <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/etPassword"
         android:layout_width="300dp"
         android:layout_height="wrap_content"

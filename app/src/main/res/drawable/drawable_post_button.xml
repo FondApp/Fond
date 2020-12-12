@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:drawable="@drawable/ic_add_on_secondary_24dp"
+        android:width="8dp"
+        android:height="8dp"
+        />
+
+</layer-list >
