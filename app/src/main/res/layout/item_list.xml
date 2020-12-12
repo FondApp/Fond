@@ -12,7 +12,8 @@
         android:layout_height="wrap_content"
         android:checkMark="@drawable/drawable_checkbox"
         android:checked="false"
-        android:padding="15dp"
+        android:padding="16dp"
+        android:gravity="center_vertical"
         tools:text="1. Example Item" />
 
 

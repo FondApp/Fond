@@ -3,6 +3,7 @@ package com.example.fond.data.remote;
 import com.example.fond.data.model.ComplexSearchResults;
 import com.example.fond.data.model.Recipe;
 import com.example.fond.data.model.RecipeList;
+import com.example.fond.data.model.SimilarRecipe;
 
 import java.util.List;
 import java.util.Map;
@@ -33,6 +34,12 @@ public interface SpoonacularService {
 
     @GET("/recipes/{id}/information")
     Call<Recipe> getRecipeInformation(
+            @Path("id") String id,
+            @Query("apiKey") String apiKey
+    );
+
+    @GET("/recipes/{id}/similar")
+    Call<List<SimilarRecipe>> getSimilarRecipes(
             @Path("id") String id,
             @Query("apiKey") String apiKey
     );
