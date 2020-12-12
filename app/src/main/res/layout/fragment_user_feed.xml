@@ -22,15 +22,18 @@
         android:layout_marginTop="0dp"
         android:padding="8dp" />
 
-    <Button
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btnPost"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/toolbar"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="289dp"
-        android:layout_marginBottom="-618dp"
-        android:text="@string/post" />
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="48dp"
+        android:layout_marginBottom="48dp"
+        android:contentDescription="@string/fab_content_desc"
+        android:src="@drawable/ic_add_24px" />
 
 
 </RelativeLayout>

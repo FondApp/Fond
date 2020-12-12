@@ -34,6 +34,7 @@ import com.example.fond.R;
 import com.example.fond.activities.LoginActivity;
 import com.example.fond.adapters.ProfilePostAdapter;
 import com.example.fond.models.UserPost;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.parse.FindCallback;
 import com.parse.GetCallback;
 import com.parse.ParseException;
@@ -50,7 +51,7 @@ public class ProfileFragment extends Fragment {
     private String TAG = "ProfileFeedFragment";
     private List<UserPost> allPosts;
     private OnLogoutButtonSelectedListener listener;
-    protected Button btnLogout;
+    protected FloatingActionButton btnLogout;
     private TextView tvUserNameProfile;
     private ProfilePostAdapter adapter;
     private ImageView ivProfilePicture;
