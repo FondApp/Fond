@@ -5,24 +5,24 @@
     <item
         android:id="@+id/action_user_feed"
         android:icon="@drawable/drawable_home"
-        android:title="Home"
+        android:title="@string/home"
         app:showAsAction="always" />
 
     <item
         android:id="@+id/action_search"
         android:icon="@drawable/drawable_search"
-        android:title="Search"
+        android:title="@string/search"
         app:showAsAction="always" />
 
     <item
         android:id="@+id/action_recipe"
         android:icon="@drawable/drawable_fork_and_knife2"
-        android:title="Saved Recipes"
+        android:title="@string/saved_recipes"
         app:showAsAction="ifRoom" />
 
     <item
         android:id="@+id/action_profile"
         android:icon="@drawable/drawable_profile"
-        android:title="Profile"
+        android:title="@string/profile"
         app:showAsAction="ifRoom" />
 </menu>

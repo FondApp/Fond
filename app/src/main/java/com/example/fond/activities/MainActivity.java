@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.Window;
 import android.widget.Toast;
 
 import com.example.fond.fragments.ComposeFragment;
@@ -41,6 +42,7 @@ public class MainActivity extends AppCompatActivity implements UserFeedFragment.
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTheme(R.style.FondTheme);
         setContentView(R.layout.activity_main);
 
         bottomNavigationView = findViewById(R.id.bottom_navigation);

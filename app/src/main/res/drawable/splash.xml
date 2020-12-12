@@ -6,7 +6,7 @@
     <item>
         <bitmap
             android:gravity="center"
-            android:src="@drawable/ic_fond" />
+            android:src="@drawable/splash2" />
     </item>
 
 </layer-list>
