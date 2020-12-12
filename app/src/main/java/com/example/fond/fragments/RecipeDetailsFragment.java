@@ -9,11 +9,13 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.text.Html;
 import android.text.Spanned;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -31,8 +33,10 @@ import com.example.fond.R;
 import com.example.fond.adapters.ListItemAdapter;
 import com.example.fond.adapters.RecipeIngredientsAdapter;
 import com.example.fond.adapters.RecipeInstructionAdapter;
+import com.example.fond.adapters.SimilarRecipeAdapter;
 import com.example.fond.data.model.ExtendedIngredient;
 import com.example.fond.data.model.Recipe;
+import com.example.fond.data.model.SimilarRecipe;
 import com.example.fond.data.model.Step;
 import com.example.fond.data.remote.SpoonacularService;
 import com.example.fond.data.remote.SpoonacularUtils;
@@ -50,7 +54,7 @@ import static android.text.Html.fromHtml;
 
 public class RecipeDetailsFragment extends Fragment {
     public static final String ID = "id";
-    public static final String TAG="RecipeDetailsFragment";
+    public static final String TAG = "RecipeDetailsFragment";
 
     private String id;
     private ImageView ivRecipeImage;
@@ -64,6 +68,10 @@ public class RecipeDetailsFragment extends Fragment {
     private String apiKey = BuildConfig.SPOONACULAR_API_KEY;
     protected ListItemAdapter recipeInstructionAdapter;
     protected ListItemAdapter recipeIngredientsAdapter;
+    private RecyclerView rvSimilarRecipes;
+    private List<Recipe> similarRecipes;
+    protected SimilarRecipeAdapter similarRecipeAdapter;
+    private onRecipeSelectedListener listener;
 
     public static RecipeDetailsFragment newInstance(long id){
         RecipeDetailsFragment recipeDetailsFragment = new RecipeDetailsFragment();
@@ -76,6 +84,30 @@ public class RecipeDetailsFragment extends Fragment {
 
     public RecipeDetailsFragment() {
         // Required empty public constructor
+    }
+
+    public  interface onRecipeSelectedListener {
+        void onRecipeListenerClick(long id);
+    }
+
+    @Override
+    public  void onAttach(@NonNull Context context){
+        super.onAttach(context);
+
+        if (context instanceof  onRecipeSelectedListener) {
+            listener = (onRecipeSelectedListener) context;
+        }
+        else {
+            throw new ClassCastException(context.toString()
+                    + " must implement RecipeDetailsFragment.onRecipeSelectedListener");
+        }
+    }
+
+    @Override
+    public void onDetach() {
+
+        super.onDetach();
+        listener = null;
     }
 
 
@@ -120,6 +152,18 @@ public class RecipeDetailsFragment extends Fragment {
         rvInstructions.setLayoutManager(new LinearLayoutManager(getContext()));
         rvInstructions.setAdapter(recipeInstructionAdapter);
         rvIngredients.setAdapter(recipeIngredientsAdapter);
+
+        similarRecipes = new ArrayList<>();
+        rvSimilarRecipes = view.findViewById(R.id.rvSimilarRecipes);
+
+        similarRecipeAdapter = new SimilarRecipeAdapter(getContext(), similarRecipes, new SimilarRecipeAdapter.SimilarRecipeItemListener() {
+            @Override
+            public void onSimilarRecipeClick(long id) {
+                listener.onRecipeListenerClick(id);
+            }
+        });
+        rvSimilarRecipes.setLayoutManager(new GridLayoutManager(getContext(), 1, LinearLayoutManager.HORIZONTAL, false));
+        rvSimilarRecipes.setAdapter(similarRecipeAdapter);
         if (getArguments() != null){
             id = String.valueOf(getArguments().getLong(ID));
 //            Toast.makeText(getContext(), "Recipe id is "+ id, Toast.LENGTH_SHORT).show();
@@ -141,6 +185,7 @@ public class RecipeDetailsFragment extends Fragment {
 
                     getRecipeInstructions(recipe);
                     getRecipeIngredients(recipe);
+                    getSimilarRecipes(recipe);
                     Spanned sp = Html.fromHtml(recipe.getSummary());
                     // tvRecipeSummary.setText(recipe.getSummary());
                     tvRecipeSummary.setText(sp);
@@ -158,6 +203,63 @@ public class RecipeDetailsFragment extends Fragment {
             @Override
             public void onFailure(Call<Recipe> call, Throwable t) {
                 Log.d(TAG, "ERROR getting recipe: "+ t.toString());
+            }
+        });
+    }
+
+    private void getSimilarRecipes(Recipe recipe) {
+        service.getSimilarRecipes(id, apiKey).enqueue(new Callback<List<SimilarRecipe>>() {
+            List<SimilarRecipe> similarRecipeList;
+
+            @Override
+            public void onResponse(Call<List<SimilarRecipe>> call, Response<List<SimilarRecipe>> response) {
+                if (response.isSuccessful()){
+                    similarRecipeList = response.body();
+                    getRecipesFromList(similarRecipeList);
+                } else {
+
+                    Log.d(TAG, "ERROR, returned " + response.code());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<SimilarRecipe>> call, Throwable t) {
+                Log.d(TAG, "ERROR getting similar recipes: "+ t.toString());
+            }
+
+
+        });
+    }
+
+    private void getRecipesFromList(List<SimilarRecipe> similarRecipeList) {
+        List<String> ids = new ArrayList<>();
+
+        for (int i = 0 ; i<similarRecipeList.size(); i++){
+            ids.add(similarRecipeList.get(i).getId().toString());
+        }
+        String result = TextUtils.join(",", ids);
+        loadBulkRecipeDetails(result);
+    }
+
+    private void loadBulkRecipeDetails(final String result) {
+        Log.i(TAG, "Getting bulk recipes for " + result);
+
+        service.getRecipeBulk(apiKey, result).enqueue(new Callback<List<Recipe>>() {
+
+            @Override
+            public void onResponse(Call<List<Recipe>> call, Response<List<Recipe>> response) {
+                if (response.isSuccessful()){
+                    Log.d(TAG, "Successful bulk posts" );
+                    similarRecipes.addAll(response.body());
+                    similarRecipeAdapter.notifyDataSetChanged();
+                } else {
+                    Log.d(TAG, "ERROR, returned " + response.code());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<Recipe>> call, Throwable t) {
+                Log.d(TAG, "ERROR getting bulk recipes: "+ t.toString());
             }
         });
     }

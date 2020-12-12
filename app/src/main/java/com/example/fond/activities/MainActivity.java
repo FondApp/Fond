@@ -27,7 +27,7 @@ import com.parse.ParseUser;
 public class MainActivity extends AppCompatActivity implements UserFeedFragment.OnPostButtonSelectedListener,
                                                                ComposeFragment.OnSubmitListener,
                                                                SearchRecipeFragment.onRecipeSelectedListener,
-        ProfileFragment.OnLogoutButtonSelectedListener, SavedRecipesFragment.onRecipeSelectedListener
+        ProfileFragment.OnLogoutButtonSelectedListener, SavedRecipesFragment.onRecipeSelectedListener, RecipeDetailsFragment.onRecipeSelectedListener
 {
     public static final String TAG = "MainActivity";
     protected Fragment userFeedFragment;
