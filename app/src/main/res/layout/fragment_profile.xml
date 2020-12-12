@@ -8,42 +8,43 @@
     android:layout_height="match_parent"
     tools:context=".fragments.ProfileFragment">
 
-    <RelativeLayout
-        android:id="@+id/profile_container"
+<!--    <RelativeLayout-->
+<!--        android:id="@+id/profile_container"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="8dp"-->
+<!--        android:layout_marginTop="8dp"-->
+<!--        android:layout_marginEnd="8dp"-->
+<!--        android:layout_marginBottom="8dp"-->
+<!--        android:background="@color/white_transparent_bg">-->
+
+    <ImageView
+        android:id="@+id/ivProfilePicture"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_margin="8dp"
+        android:scaleType="center"
+        tools:src="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/tvUserNameProfile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/ivProfilePicture"
+        android:layout_alignParentStart="true"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:background="@color/white_transparent_bg">
+        android:autoText="false"
+        android:fontFamily="sans-serif-medium"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="@color/username_color"
+        tools:text="UserName" />
 
-        <ImageView
-            android:id="@+id/ivProfilePicture"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:scaleType="center"
-            tools:src="@tools:sample/avatars" />
-
-        <TextView
-            android:id="@+id/tvUserNameProfile"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/ivProfilePicture"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
-            android:autoText="false"
-            android:fontFamily="cursive"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:textColor="@color/username_color"
-            tools:text="UserName" />
-
-    </RelativeLayout>
+<!--    </RelativeLayout>-->
 
 
 
@@ -51,7 +52,7 @@
         android:id="@+id/rvProfilePosts"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/profile_container"
+        android:layout_below="@+id/ivProfilePicture"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_marginStart="10dp"

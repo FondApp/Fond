@@ -32,10 +32,10 @@
         android:layout_marginEnd="5dp"
         android:layout_marginBottom="5dp"
         android:layout_toEndOf="@id/ivUserProfile"
+        android:fontFamily="sans-serif-medium"
         android:textAlignment="viewStart"
         android:textColor="@color/username_color"
         android:textSize="18sp"
-        android:textStyle="bold"
         tools:text="PandemicBaker" />
 
     <ImageView
@@ -43,9 +43,10 @@
         android:layout_width="match_parent"
         android:layout_height="300dp"
         android:layout_below="@id/ivUserProfile"
-        android:layout_marginStart="5dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginBottom="5dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="8dp"
         android:contentDescription="@string/user_post_image"
         android:scaleType="centerCrop"
         tools:src="@tools:sample/avatars"
@@ -75,7 +76,6 @@
         android:layout_marginEnd="5dp"
         android:background="#00FFFFFF"
         android:button="@drawable/drawable_fond2"
-        android:buttonTint="@color/fond_teal_900"
         android:checked="true"
         android:textOff=""
         android:textOn=""

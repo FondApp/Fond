@@ -27,6 +27,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAlignment="center"
+        android:textColor="@color/username_color"
         android:textSize="30sp"
         android:textStyle="bold"
         tools:text="Title" />
@@ -36,6 +37,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
+        android:background="@color/white_transparent_bg"
         android:linksClickable="true"
         tools:text="Recipe Description....Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." />
 
@@ -43,25 +45,33 @@
         android:id="@+id/tvIngredientTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="10dp"
         android:text="Ingredients"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="@color/username_color" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvIngredients"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/rvIngredients"/>
+        android:layout_margin="10dp"
+        android:background="@color/white_transparent_bg" />
 
     <TextView
         android:id="@+id/tvInstructionTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="10dp"
         android:text="Instructions"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="@color/username_color" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvInstructions"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/rvInstructions">
+        android:layout_margin="10dp"
+        android:background="@color/white_transparent_bg">
 
     </androidx.recyclerview.widget.RecyclerView>
 
@@ -69,13 +79,16 @@
         android:id="@+id/tvSimilarTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="10dp"
         android:text="Similar Recipes"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="@color/username_color" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvSimilarRecipes"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp" />
 
 
 </LinearLayout>
