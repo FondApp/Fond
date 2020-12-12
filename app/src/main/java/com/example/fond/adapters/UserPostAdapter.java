@@ -9,6 +9,7 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.ToggleButton;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -70,7 +71,8 @@ public class UserPostAdapter extends RecyclerView.Adapter<UserPostAdapter.ViewHo
         public TextView tvUsername;
         public ImageView ivImage;
         public TextView tvCaption;
-        public CheckBox chkFond;
+//        public CheckBox chkFond;
+        public ToggleButton chkFond;
 
 
         // We also create a constructor that accepts the entire item row

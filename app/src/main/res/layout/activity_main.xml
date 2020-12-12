@@ -11,15 +11,16 @@
         android:id="@+id/flContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/bottom_navigation" />
+        android:layout_above="@+id/bottom_navigation"
+        android:background="@color/fond_teal_200" />
 
-    <ImageView
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:paddingLeft="20dp"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp"
-        app:srcCompat="@drawable/ic_fond" />
+<!--    <ImageView-->
+<!--        android:layout_width="100dp"-->
+<!--        android:layout_height="50dp"-->
+<!--        android:paddingLeft="20dp"-->
+<!--        android:paddingTop="5dp"-->
+<!--        android:paddingBottom="5dp"-->
+<!--        app:srcCompat="@drawable/ic_fond" />-->
 
 
     <com.google.android.material.bottomnavigation.BottomNavigationView

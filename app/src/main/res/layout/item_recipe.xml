@@ -5,8 +5,8 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="8dp"
-    android:background="#00FFFFFF"
+    android:layout_margin="4dp"
+    android:background="@color/white_transparent_bg"
     android:orientation="vertical">
 
     <ImageView
@@ -29,7 +29,7 @@
         android:layout_marginStart="5dp"
         android:layout_toEndOf="@+id/ivRecipeImage"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="@color/fond_teal_900"
+        android:textColor="@color/fond_teal_600"
         tools:text="Test Recipe" />
 
     <TextView

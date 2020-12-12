@@ -19,6 +19,7 @@
     <color name="fond_teal_300">#4bb0af</color>
     <color name="fond_teal_200">#7fc7c6</color>
 
-
+    <color name="white_transparent_bg">#CEFFFFFF</color>
+    <color name="username_color">#CA4701</color>
 
 </resources>
