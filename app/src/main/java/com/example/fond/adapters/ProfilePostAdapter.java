@@ -61,7 +61,7 @@ public class ProfilePostAdapter extends RecyclerView.Adapter<ProfilePostAdapter.
             int margin = 0; // crop margin, set to 0 for corners with no crop
             ParseFile postImage = post.getImage();
             if (postImage != null) {
-                Glide.with(context).load(postImage.getUrl()).transform(new RoundedCornersTransformation(radius, margin)).into(ivPost);
+                Glide.with(context).load(postImage.getUrl()).fitCenter().transform(new RoundedCornersTransformation(radius, margin)).into(ivPost);
             }
         }
     }
