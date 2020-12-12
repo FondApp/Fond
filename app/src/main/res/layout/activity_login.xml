@@ -13,12 +13,13 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="112dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="111dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="114dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="108dp"
         android:layout_marginBottom="5dp"
         android:contentDescription="@string/fond_logo"
-        app:srcCompat="@android:drawable/btn_star"
+        app:srcCompat="@drawable/ic_baseline_emoji_food_beverage_24"
         tools:layout_editor_absoluteX="189dp"
         tools:layout_editor_absoluteY="16dp" />
 
