@@ -130,7 +130,7 @@ public class SavedRecipesFragment extends Fragment {
         adapter = new RecipeSavedAdapter(getContext(), allRecipes, new RecipeSavedAdapter.SavedRecipeItemListener() {
             @Override
             public void onRecipeClick(long id) {
-                Toast.makeText(getContext(), "Recipe id is "+ id, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getContext(), "Recipe id is "+ id, Toast.LENGTH_SHORT).show();
                 listener.onRecipeListenerClick(id);
             }
         });
