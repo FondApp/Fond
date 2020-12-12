@@ -4,92 +4,95 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
-<LinearLayout
 
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    tools:context=".fragments.RecipeDetailsFragment"
-    android:orientation="vertical">
+    <LinearLayout
 
-    <include
-        layout="@layout/toolbar_main"/>
-
-    <ImageView
-        android:id="@+id/ivRecipeImage"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/toolbar"
-        tools:src="@tools:sample/avatars" />
-
-
-    <TextView
-        android:id="@+id/tvTitle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAlignment="center"
-        android:textColor="@color/username_color"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        tools:text="Title" />
-
-    <TextView
-        android:id="@+id/tvRecipeSummary"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
         android:background="@color/white_transparent_bg"
-        android:linksClickable="true"
-        tools:text="Recipe Description....Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." />
+        android:orientation="vertical"
+        tools:context=".fragments.RecipeDetailsFragment">
+<!--        android:layout_marginStart="10dp"-->
+<!--        android:layout_marginEnd="10dp"-->
 
-    <TextView
-        android:id="@+id/tvIngredientTitle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:text="Ingredients"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textColor="@color/username_color" />
+        <include layout="@layout/toolbar_main" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvIngredients"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:background="@color/white_transparent_bg" />
-
-    <TextView
-        android:id="@+id/tvInstructionTitle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:text="Instructions"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textColor="@color/username_color" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvInstructions"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:background="@color/white_transparent_bg">
-
-    </androidx.recyclerview.widget.RecyclerView>
-
-    <TextView
-        android:id="@+id/tvSimilarTitle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:text="Similar Recipes"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textColor="@color/username_color" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvSimilarRecipes"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp" />
+        <ImageView
+            android:id="@+id/ivRecipeImage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/toolbar"
+            tools:src="@tools:sample/avatars" />
 
 
-</LinearLayout>
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white_transparent_bg"
+            android:textAlignment="center"
+            android:textColor="@color/username_color"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            tools:text="Title" />
+
+        <TextView
+            android:id="@+id/tvRecipeSummary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white_transparent_bg"
+            android:linksClickable="true"
+            tools:text="Recipe Description....Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." />
+
+        <TextView
+            android:id="@+id/tvIngredientTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:background="@color/white_transparent_bg"
+            android:text="Ingredients"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="@color/username_color" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvIngredients"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white_transparent_bg" />
+
+        <TextView
+            android:id="@+id/tvInstructionTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:background="@color/white_transparent_bg"
+            android:text="Instructions"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="@color/username_color" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvInstructions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white_transparent_bg">
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+        <TextView
+            android:id="@+id/tvSimilarTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:background="@color/white_transparent_bg"
+            android:text="Similar Recipes"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="@color/username_color" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvSimilarRecipes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+
+    </LinearLayout>
 </ScrollView>
