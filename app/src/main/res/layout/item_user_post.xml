@@ -5,7 +5,8 @@
     android:id="@+id/container"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_margin="5dp">
+    android:layout_margin="4dp"
+    android:background="@color/white_transparent_bg">
 
     <ImageView
         android:id="@+id/ivUserProfile"
@@ -31,7 +32,10 @@
         android:layout_marginEnd="5dp"
         android:layout_marginBottom="5dp"
         android:layout_toEndOf="@id/ivUserProfile"
-        android:textStyle="bold"
+        android:fontFamily="sans-serif-medium"
+        android:textAlignment="viewStart"
+        android:textColor="@color/username_color"
+        android:textSize="18sp"
         tools:text="PandemicBaker" />
 
     <ImageView
@@ -39,10 +43,10 @@
         android:layout_width="match_parent"
         android:layout_height="300dp"
         android:layout_below="@id/ivUserProfile"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginBottom="5dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="8dp"
         android:contentDescription="@string/user_post_image"
         android:scaleType="centerCrop"
         tools:src="@tools:sample/avatars"
@@ -58,9 +62,11 @@
         android:layout_marginEnd="5dp"
         android:layout_marginBottom="5dp"
         android:layout_toStartOf="@+id/chkFond"
+        android:textAlignment="viewStart"
+        android:textSize="16sp"
         tools:text="Hey, this is coolio!" />
 
-    <CheckBox
+    <androidx.appcompat.widget.AppCompatToggleButton
         android:id="@+id/chkFond"
         android:layout_width="50dp"
         android:layout_height="50dp"
@@ -68,10 +74,11 @@
         android:layout_alignParentEnd="true"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="5dp"
-        android:button="@drawable/drawable_fond"
-        android:buttonTint="@color/fond_teal_900"
+        android:background="#00FFFFFF"
+        android:button="@drawable/drawable_fond2"
         android:checked="true"
-        android:textColor="#000000"
+        android:textOff=""
+        android:textOn=""
         android:visibility="visible" />
 
 

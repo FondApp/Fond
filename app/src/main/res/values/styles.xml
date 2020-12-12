@@ -16,7 +16,6 @@
         <item name="colorPrimary">@color/fond_teal_500</item>
         <item name="colorPrimaryDark">@color/fond_teal_700 </item>
         <item name="colorAccent">@color/fond_orange_700</item>
-        <item name="android:windowActionBar">false</item>
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowFullscreen">true</item>
     </style>
