@@ -35,8 +35,8 @@ Fond is a mobile application that allows hungry foodies and passionate chefs to 
 
 - [X] [ 1 ] User can register a new account
 - [X] [ 2 ] User can login
-- [ ] [ 3 ] User sees app icon in home screen and styled bottom navigation view.
-  - [ ] User sees app icon in home screen.
+- [x] [ 3 ] User sees app icon in home screen and styled bottom navigation view.
+  - [x] User sees app icon in home screen.
   - [X] User sees styled bottom navigation view.
 - [x] [ 4 ] User can see a feed of recent user-generated photos
   - [X] Create posts feed fragment. (i.e. User Feed)
@@ -59,15 +59,15 @@ Fond is a mobile application that allows hungry foodies and passionate chefs to 
 * - [ ] [ 31 ] Screen stays on (light doesn’t dim) while user has the recipe open
 * - [ ] [ 11 ] User can create a persisted list of ingredients 
 * - [x] [ 5 ] User feed is filled with most popular recipes
-* - [ ] [ 6 ] User can see similar recipes to the one they selected on their feed
+* - [x] [ 6 ] User can see similar recipes to the one they selected on their feed
 * - [ ] [ 15 ] User can filter search based on including ingredients that are in their inventory of ingredients
 * - [ ] [ 18 ] User can filter search based on food genre (Italian, Mexican, etc)
-* - [ ] [ 24 ] User can like recipes
-* - [ ] [ 25 ] User can like others’ pictures of recipes
-* - [ ] [ 27 ] User can favorite recipes 
-* - [ ] [ 33 ] User is able to check off what has been completed when making the recipe 
+* - [x] [ 24 ] User can like recipes
+* - [x] [ 25 ] User can like others’ pictures of recipes
+* - [x] [ 27 ] User can favorite recipes 
+* - [x] [ 33 ] User is able to check off what has been completed when making the recipe 
 * - [ ] [ 35 ] User can see a history of recipes they’ve tried
-* - [ ] [ 36 ] User can save recipe lists for meal planning
+* - [x] [ 36 ] User can save recipe lists for meal planning
 * - [ ] [ 37 ] User can click on a recipe ingredient to see what substitutes might work/have been used
 * - [ ] [ 39 ] User can see number of overall likes for each recipe post
 * - [ ] [ 42 ] User can pull up a conversion chart (i.e. 1 tbsp = 3 tsp)
@@ -104,6 +104,10 @@ Here's a walkthrough of implemented user stories:
 #### 12/4/2020 update:
 
 <img src='http://g.recordit.co/8rL6tMN2iu.gif' title='Dec 4th update' width='' alt='Dec 4th update' /> 
+
+#### 12/11/2020 update:
+
+<img src='http://g.recordit.co/pdO3vF4SpG.gif' title='Dec 11th update' width='' alt='Dec 11th update' /> 
 
 
 ### 3. Screen Archetypes 
