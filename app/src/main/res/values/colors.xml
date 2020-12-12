@@ -20,6 +20,6 @@
     <color name="fond_teal_200">#7fc7c6</color>
 
     <color name="white_transparent_bg">#CEFFFFFF</color>
-    <color name="username_color">#B53F00</color>
+    <color name="username_color">@color/fond_orange_900</color>
 
 </resources>
