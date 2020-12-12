@@ -5,7 +5,7 @@
     <item
         android:id="@+id/miSearch"
         android:icon="@drawable/ic_filter_alt"
-        android:title="Search"
+        app:titleTextColor="@color/fond_teal_500"
         android:visible="false"
         app:actionViewClass="android.widget.SearchView"
         app:showAsAction="ifRoom" />
