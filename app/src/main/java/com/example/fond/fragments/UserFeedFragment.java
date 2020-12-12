@@ -23,6 +23,7 @@ import com.example.fond.R;
 import com.example.fond.adapters.UserPostAdapter;
 import com.example.fond.models.Fond;
 import com.example.fond.models.UserPost;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseQuery;
@@ -38,7 +39,8 @@ public class UserFeedFragment extends Fragment {
     private UserPostAdapter adapter;
     private List<UserPost> allPosts;
     private OnPostButtonSelectedListener listener;
-    protected Button btnCreatePost;
+    protected FloatingActionButton btnCreatePost;
+//    protected Button btnCreatePost;
     private List<String> fondedPosts;
 
     public UserFeedFragment() {
@@ -107,6 +109,9 @@ public class UserFeedFragment extends Fragment {
                 listener.onPostButtonClick(getContext());
             }}
         );
+
+
+
     }
 
     @Override
