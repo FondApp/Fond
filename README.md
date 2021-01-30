@@ -17,7 +17,7 @@ Unit 10: Group Milestone - README
 ### Description
 [<img src="https://github.com/FondApp/Fond/blob/main/youtube.gif" width = "600">](https://www.youtube.com/watch?v=M80eBfulsfE)
 
-[*(Click to Watch Video)*](https://www.youtube.com/watch?v=M80eBfulsfE)
+[*(Click to Watch Demo Video)*](https://www.youtube.com/watch?v=M80eBfulsfE)
 
 Fond is a mobile application that allows hungry foodies and passionate chefs to find inspiration for their next dish while browsing their feed or searching for a recipe on the app to make. With ingredient search, aspiring chefs can use items already in the kitchen in new and exciting ways. Once concocted, users will be able share their food creations with the world. 
 
